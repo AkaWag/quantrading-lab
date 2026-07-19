@@ -1,0 +1,61 @@
+//@version=6
+strategy(
+     "Quantrading Baseline Strategy",
+     overlay = true,
+     initial_capital = 100000,
+     pyramiding = 0,
+     commission_type = strategy.commission.percent,
+     commission_value = 0.10,
+     slippage = 1,
+     process_orders_on_close = true,
+     calc_on_every_tick = false)
+
+// ── Inputs
+string groupSignal = "Signal"
+int fastLength = input.int(20, "Fast EMA", minval = 1, group = groupSignal)
+int slowLength = input.int(50, "Slow EMA", minval = 2, group = groupSignal)
+
+string groupRisk = "Risk"
+float riskPercent = input.float(1.0, "Risk per trade (%)", minval = 0.01, maxval = 10.0, step = 0.05, group = groupRisk)
+int atrLength = input.int(14, "ATR length", minval = 1, group = groupRisk)
+float atrStopMultiple = input.float(2.0, "ATR stop multiple", minval = 0.1, step = 0.1, group = groupRisk)
+
+// ── Calculations
+float fastEma = ta.ema(close, fastLength)
+float slowEma = ta.ema(close, slowLength)
+float atr = ta.atr(atrLength)
+
+// Confirmed-bar baseline signals.
+bool longSignal = barstate.isconfirmed and ta.crossover(fastEma, slowEma)
+bool shortSignal = barstate.isconfirmed and ta.crossunder(fastEma, slowEma)
+
+// Approximate risk-based sizing. Verify point value and contract behavior for the chosen market.
+float stopDistance = atr * atrStopMultiple
+float riskCash = strategy.equity * riskPercent / 100.0
+float unitRisk = stopDistance * syminfo.pointvalue
+float rawQty = unitRisk > 0 ? riskCash / unitRisk : 0
+float orderQty = math.max(rawQty, 0)
+
+// ── Orders
+if longSignal and orderQty > 0
+    strategy.entry("Long", strategy.long, qty = orderQty)
+
+if shortSignal and orderQty > 0
+    strategy.entry("Short", strategy.short, qty = orderQty)
+
+float longStop = strategy.position_avg_price - stopDistance
+float shortStop = strategy.position_avg_price + stopDistance
+
+if strategy.position_size > 0
+    strategy.exit("Long Exit", from_entry = "Long", stop = longStop)
+
+if strategy.position_size < 0
+    strategy.exit("Short Exit", from_entry = "Short", stop = shortStop)
+
+// ── Visuals
+plot(fastEma, "Fast EMA")
+plot(slowEma, "Slow EMA")
+
+// ── Alerts
+alertcondition(longSignal, "Long signal", "Confirmed long signal")
+alertcondition(shortSignal, "Short signal", "Confirmed short signal")

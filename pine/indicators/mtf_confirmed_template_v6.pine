@@ -1,0 +1,8 @@
+//@version=6
+indicator("QT Confirmed HTF Template v2.5", overlay=true)
+
+string htf = input.timeframe("60", "Higher timeframe")
+// The one-bar offset with lookahead_on requests the last confirmed HTF value.
+// Confirm suitability for the intended market/session and reject equal/lower timeframes.
+float confirmedHtfClose = request.security(syminfo.tickerid, htf, close[1], gaps=barmerge.gaps_off, lookahead=barmerge.lookahead_on)
+plot(confirmedHtfClose, "Confirmed HTF close")

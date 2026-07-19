@@ -1,0 +1,58 @@
+# System Boundaries
+
+This document defines the layers of the QuanTrading Lab system, who owns them, and the trust
+boundaries between them. It supports [`PLATFORM_VISION.md`](PLATFORM_VISION.md) and the security
+rule `30-security-and-operations.mdc` in [`.cursor/rules/`](../../.cursor/rules/).
+
+## Layers
+
+### Workspace Layer
+- The V2.5 research workspace: hypotheses, specifications, Pine source, tests, reviews,
+  releases, and governance docs (this repository).
+- **Owner:** the researcher/engineer. **Trust:** trusted content, but treated as reproducible
+  and backed up, not irreplaceable.
+
+### Platform Layer (intended)
+- The Ubuntu server management and configuration that hosts workspaces (V3 direction).
+- **Owner:** the platform administrator. **Trust:** authoritative host; controls access to
+  workspaces, services, and backups. Does not yet exist as a managed layer (see
+  [`V2_5_TO_V3_ROADMAP.md`](V2_5_TO_V3_ROADMAP.md)).
+
+### Service Layer (intended)
+- Optional supporting services (version control, indexing, databases, automation, dashboards,
+  backups). None assumed to exist today.
+- **Owner:** the platform administrator. **Trust:** each service is reviewed and scoped
+  individually before being trusted.
+
+### Client Layer
+- Developer machines and Cursor connecting via controlled remote access.
+- **Owner:** the individual user. **Trust:** development clients only; **not the system of
+  record** and not trusted with canonical data or secrets.
+
+### External Systems
+- TradingView (charting, compilation, and backtesting) and any brokers/exchanges/data vendors.
+- **Owner:** third parties. **Trust:** external and outside our control.
+
+## Trust boundaries
+
+- **TradingView remains external.** It is the compilation and backtest authority, but it is not
+  part of the platform and its outputs must be brought in as evidence, not assumed.
+- **Cursor is a development client, not the system of record.** Work produced in Cursor becomes
+  authoritative only when stored on the intended server of record.
+- **The Ubuntu server is intended to become the system of record.** Until then, treat the
+  workspace copy plus backups as authoritative and keep them recoverable.
+- Crossing from Client → Platform, or Platform → External, is a trust transition and must use
+  controlled, minimum-privilege access.
+
+## Secrets
+
+- Secrets (broker credentials, webhook secrets, exchange API keys, TradingView session data)
+  must remain **outside source-controlled content**. Use a non-committed `.env`.
+- Secrets must never appear in source, prompts, logs, or version history. See
+  [`../governance/AI_OPERATING_PRINCIPLES.md`](../governance/AI_OPERATING_PRINCIPLES.md).
+
+## Related documents
+
+- [`PLATFORM_VISION.md`](PLATFORM_VISION.md)
+- [`V2_5_TO_V3_ROADMAP.md`](V2_5_TO_V3_ROADMAP.md)
+- [`../governance/DECISION_GOVERNANCE.md`](../governance/DECISION_GOVERNANCE.md)

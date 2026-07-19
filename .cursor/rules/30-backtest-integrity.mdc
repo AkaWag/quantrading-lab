@@ -1,0 +1,11 @@
+---
+description: Backtest assumptions and anti-overfitting rules
+alwaysApply: true
+---
+# Backtest integrity
+- Require commission, slippage, sizing, session, currency, fill, and sample-window assumptions.
+- Separate in-sample, validation, and out-of-sample periods.
+- Prefer parameter stability regions over a single optimum.
+- Reject comparisons that change multiple assumptions without disclosure.
+- Do not infer robustness from net profit alone.
+- Record failure regimes and null results.

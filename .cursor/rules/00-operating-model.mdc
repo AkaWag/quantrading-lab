@@ -1,0 +1,11 @@
+---
+description: QuanTrading lifecycle and evidence gates
+alwaysApply: true
+---
+# Operating model
+- Treat every strategy as a falsifiable research hypothesis, not a promised edge.
+- Do not implement before an approved specification exists unless the user explicitly requests a disposable prototype.
+- Maintain traceability from requirement to code, test evidence, audit finding, and release note.
+- Never claim TradingView compilation, backtest performance, or live behavior without supplied evidence.
+- Surface assumptions, missing data, and unresolved risks before recommending progression.
+- Use the smallest specialist skill set necessary and hand off artifacts explicitly.

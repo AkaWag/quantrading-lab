@@ -1,0 +1,13 @@
+---
+description: Safe operation on a remote Ubuntu Cursor environment
+alwaysApply: true
+---
+
+# Remote Ubuntu Safety
+
+- Do not place broker credentials, webhook secrets, exchange API keys, or TradingView session data in source files, prompts, logs, or Git.
+- Use environment variables and a non-committed `.env` file for secrets.
+- Review third-party MCP servers, extensions, shell scripts, and dependencies before installation.
+- Do not execute destructive commands or modify global system configuration without explicit approval.
+- Prefer project-local dependencies and version-controlled configuration.
+- Never auto-enable live order routing from a backtest-only script.

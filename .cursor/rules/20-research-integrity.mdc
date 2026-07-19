@@ -1,0 +1,21 @@
+---
+description: Quantitative research and backtest integrity standards
+alwaysApply: true
+---
+
+# Research Integrity
+
+Every strategy evaluation must consider:
+
+- lookahead and survivorship bias
+- data-mining and multiple-testing risk
+- realistic commission, spread, slippage, and order fills
+- sample size and trade clustering
+- regime dependence
+- parameter sensitivity
+- in-sample versus out-of-sample performance
+- walk-forward or rolling validation
+- benchmark comparison
+- maximum drawdown, recovery duration, exposure, turnover, and tail risk
+
+Do not rank a strategy using net profit alone. Prefer a balanced scorecard and disclose missing information.

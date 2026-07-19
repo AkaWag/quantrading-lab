@@ -1,0 +1,11 @@
+---
+description: Repainting, lookahead, and multi-timeframe controls
+globs: ["**/*.pine"]
+alwaysApply: false
+---
+# Temporal integrity
+- Default to confirmed-bar decisions for historical/live consistency.
+- Treat higher-timeframe data as unsafe until timing, gaps, and lookahead are reviewed.
+- Never use future information, negative plot offsets to imply earlier knowledge, or unconfirmed pivots as confirmed signals.
+- Classify each possible repaint source and document accepted real-time variability.
+- Require explicit evidence before labeling a script non-repainting.

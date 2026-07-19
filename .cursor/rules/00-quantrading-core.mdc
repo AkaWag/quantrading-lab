@@ -1,0 +1,17 @@
+---
+description: Core operating rules for TradingView Pine Script strategy development
+alwaysApply: true
+---
+
+# Quantrading Lab Core Rules
+
+- Target Pine Script v6 unless the user explicitly requests another version.
+- Never invent Pine functions, parameters, broker behavior, or TradingView limits. Mark uncertain API details for verification against official documentation.
+- Separate strategy hypothesis, implementation, validation, and optimization.
+- Never present a profitable backtest as proof of a viable live strategy.
+- State assumptions about symbol, asset class, timeframe, session, timezone, order type, fill model, costs, pyramiding, and position sizing.
+- Prefer transparent, testable logic over unnecessary complexity.
+- Do not optimize parameters until a fixed baseline and out-of-sample plan exist.
+- Preserve user code unless a change is necessary; explain material behavioral changes.
+- For every completed strategy, report repainting risk, lookahead risk, execution assumptions, risk controls, and validation gaps.
+- Avoid claims such as guaranteed, safe, optimal, institutional-grade, or production-ready unless objectively justified.

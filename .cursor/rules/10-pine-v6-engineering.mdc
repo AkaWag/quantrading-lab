@@ -1,0 +1,13 @@
+---
+description: Pine Script v6 engineering standards
+globs: ["**/*.pine"]
+alwaysApply: false
+---
+# Pine v6 engineering
+- Target `//@version=6` unless compatibility is explicitly required.
+- Separate inputs, derived series, signals, risk, orders, visuals, alerts, and diagnostics.
+- Use descriptive names and typed variables where ambiguity exists.
+- Keep entry and exit semantics explicit; document order timing and pyramiding.
+- Minimize repeated calculations and `request.*()` calls.
+- Preserve behavior during refactors; list intentional semantic changes.
+- Never invent Pine functions or unsupported API behavior.

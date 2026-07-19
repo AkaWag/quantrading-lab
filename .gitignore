@@ -1,0 +1,14 @@
+# Secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+
+# Generated release artifacts
+releases/*.tar.gz
+releases/*.sha256
+
+# Temporary / local files
+*.tmp
+*.log
+.DS_Store

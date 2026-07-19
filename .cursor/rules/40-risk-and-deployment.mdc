@@ -1,0 +1,10 @@
+---
+description: Risk controls and deployment boundary
+alwaysApply: true
+---
+# Risk and deployment
+- Risk controls are required design inputs, not late additions.
+- Distinguish signal logic, trade risk, account risk, and operational risk.
+- Do not hard-code secrets, account identifiers, or webhook credentials.
+- Generated alerts require deduplication, payload, frequency, and failure-mode review.
+- Live deployment remains blocked until explicit human approval and paper/forward-test evidence.

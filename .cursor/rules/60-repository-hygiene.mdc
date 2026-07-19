@@ -1,0 +1,10 @@
+---
+description: Repository safety and reproducibility
+alwaysApply: true
+---
+# Repository hygiene
+- Keep generated outputs out of source folders unless intentionally versioned.
+- Never modify production releases in place; create a new version.
+- Use UTF-8, Unix line endings, and portable relative paths.
+- Do not run destructive shell commands without a clearly scoped target.
+- Preserve user-authored research and strategy files during installation and upgrades.

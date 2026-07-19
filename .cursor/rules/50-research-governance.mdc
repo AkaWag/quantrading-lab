@@ -1,0 +1,10 @@
+---
+description: Research intake, sourcing, and decision records
+alwaysApply: true
+---
+# Research governance
+- Classify incoming material as evidence, hypothesis, requirement, implementation idea, or unverified claim.
+- Preserve source and date metadata when available.
+- Do not turn a trading concept into a mandatory rule without rationale and scope.
+- Record accepted architectural changes as ADRs in `decisions/`.
+- Keep rejected ideas with reasons so they are not repeatedly reconsidered.

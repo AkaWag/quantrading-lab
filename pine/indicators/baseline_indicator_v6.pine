@@ -1,0 +1,19 @@
+//@version=6
+indicator("Quantrading Baseline Indicator", overlay = true)
+
+int fastLength = input.int(20, "Fast EMA", minval = 1)
+int slowLength = input.int(50, "Slow EMA", minval = 2)
+
+float fastEma = ta.ema(close, fastLength)
+float slowEma = ta.ema(close, slowLength)
+
+bool longSignal = barstate.isconfirmed and ta.crossover(fastEma, slowEma)
+bool shortSignal = barstate.isconfirmed and ta.crossunder(fastEma, slowEma)
+
+plot(fastEma, "Fast EMA")
+plot(slowEma, "Slow EMA")
+plotshape(longSignal, "Long", shape.triangleup, location.belowbar, size = size.tiny)
+plotshape(shortSignal, "Short", shape.triangledown, location.abovebar, size = size.tiny)
+
+alertcondition(longSignal, "Long signal", "Confirmed long signal")
+alertcondition(shortSignal, "Short signal", "Confirmed short signal")
