@@ -26,18 +26,18 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 - Non-destructive verification run (`scripts/verify.sh`, `scripts/doctor.sh`).
 - Repository health & capability audit completed:
   [`reports/repository-health-audit-2026-07-19.md`](reports/repository-health-audit-2026-07-19.md).
+- Git version control initialized (ADR-001 accepted, owner Aka Wag): branch `main`, initial
+  commit `5394f7a`, `.gitignore` excluding secrets and release artifacts.
 
 ## In progress
 
 - Governance review and adoption by the team/next session.
-- Git / version-control adoption awaiting approval
-  ([`decisions/ADR-001-adopt-git-and-backup.md`](decisions/ADR-001-adopt-git-and-backup.md), status: proposed).
+- Ready to scaffold the first controlled research project (Priority 3).
 
 ## Known issues
 
-- Workspace is **not yet a Git repository** (`git` is installed; no repo initialized). No
-  `.gitignore` exists yet. Git adoption is proposed in
-  [`decisions/ADR-001-adopt-git-and-backup.md`](decisions/ADR-001-adopt-git-and-backup.md).
+- No Git **remote** is configured (local repository only). Backup to a remote would require a
+  separate ADR (credentials / external trust boundary).
 - `zip` is not installed (reported by `scripts/doctor.sh`). This is **not** a release blocker:
   `scripts/package-release.sh` uses `tar` + `sha256sum`. `unzip` is present.
 - `README.md` did not previously exist and was created during this session (placeholder-level,

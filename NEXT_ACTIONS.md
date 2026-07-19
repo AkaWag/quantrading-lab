@@ -15,12 +15,13 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 - [ ] Confirm the governance docs are internally consistent and correctly cross-linked.
 - [ ] Note gaps or missing tooling (for example the missing `zip`).
 
-## Priority 2 — Establish Git / version-control status
+## Priority 2 — Establish Git / version-control status (done)
 
-- [ ] Confirm whether the workspace is under version control (currently it is not).
-- [ ] Propose initializing Git with a `.gitignore` covering secrets (`.env`) and generated
-      outputs, and a backup routine (roadmap Phase 2). Record the decision via an ADR
-      ([`docs/governance/DECISION_GOVERNANCE.md`](docs/governance/DECISION_GOVERNANCE.md)).
+- [x] Confirm whether the workspace is under version control.
+- [x] Initialize Git with a `.gitignore` covering secrets (`.env`) and generated outputs
+      (ADR-001 accepted; branch `main`; initial commit `5394f7a`).
+- [ ] Optional / deferred: configure a backup remote — requires a separate ADR
+      (credentials / external trust boundary).
 
 ## Priority 3 — Create a first controlled research project
 
