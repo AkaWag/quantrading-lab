@@ -23,12 +23,29 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 - [ ] Optional / deferred: configure a backup remote — requires a separate ADR
       (credentials / external trust boundary).
 
-## Priority 3 — Create a first controlled research project
+## Priority 2b — Knowledge & Research department (done)
 
-- [ ] Start one research project through the gated workflow in
-      [`docs/WORKFLOW.md`](docs/WORKFLOW.md): intake → hypothesis → specification.
-- [ ] Use the templates in [`templates/`](templates/) and record status per
-      [`docs/governance/STRATEGY_LIFECYCLE.md`](docs/governance/STRATEGY_LIFECYCLE.md).
+- [x] Establish the department structure and documentation (ADR-002 accepted): reusable
+      [`knowledge/`](knowledge/README.md) base, [`research/`](research/README.md) registries/
+      templates/examples, and governing standards under
+      [`docs/research/`](docs/research/RESEARCH_DEPARTMENT.md).
+- Note: this created the department only. The research chain is **not** exercised and validation
+      capability is **not** demonstrated.
+
+## Priority 3 — Run one controlled research project (recommended next task)
+
+- [ ] Register the project in
+      [`research/registry/RESEARCH_REGISTRY.md`](research/registry/RESEARCH_REGISTRY.md) to obtain
+      a research ID (`QT-R-###`).
+- [ ] Exercise observation → research question → hypothesis → specification using the templates in
+      [`research/templates/`](research/templates/), consistent with the artifact model in
+      [`docs/research/RESEARCH_ARTIFACT_MODEL.md`](docs/research/RESEARCH_ARTIFACT_MODEL.md).
+- [ ] Do **not** implement Pine, backtest, or optimize in this project; stop at a falsifiable
+      specification with explicit invalidation criteria.
+- [ ] Record status per
+      [`docs/governance/STRATEGY_LIFECYCLE.md`](docs/governance/STRATEGY_LIFECYCLE.md) and the
+      department lifecycle in
+      [`docs/research/RESEARCH_DEPARTMENT.md`](docs/research/RESEARCH_DEPARTMENT.md).
 
 ## Not yet
 

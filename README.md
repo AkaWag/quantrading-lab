@@ -16,10 +16,35 @@ Workspace version: see [`VERSION`](VERSION).
 - [`templates/`](templates/), [`checklists/`](checklists/), [`prompts/`](prompts/) — reusable
   artifacts and gate checklists.
 - [`pine/`](pine/) — Pine Script indicators and strategies.
+- [`knowledge/`](knowledge/) — reusable knowledge base (taxonomies, Pine notes, research
+  methods, lessons); see the Knowledge & Research department below.
 - [`research/`](research/), [`experiments/`](experiments/), [`journals/`](journals/),
   [`reports/`](reports/), [`decisions/`](decisions/), [`releases/`](releases/),
   [`production/`](production/) — research lifecycle folders.
 - [`scripts/`](scripts/) — non-destructive verification and helper scripts.
+
+## Knowledge & Research department
+
+The department is QuanTrading's institutional memory and the controlled entry point for research.
+It separates **reusable knowledge** from **project-specific evidence**, and front-ends (does not
+replace) the gated workflow and strategy lifecycle. It was adopted via
+[ADR-002](decisions/ADR-002-establish-knowledge-and-research-department.md).
+
+- Governing standards: [Research department](docs/research/RESEARCH_DEPARTMENT.md),
+  [Knowledge management](docs/research/KNOWLEDGE_MANAGEMENT.md),
+  [Research artifact model](docs/research/RESEARCH_ARTIFACT_MODEL.md),
+  [Research review process](docs/research/RESEARCH_REVIEW_PROCESS.md).
+- Reusable knowledge: [`knowledge/`](knowledge/README.md) — taxonomies, Pine notes, research
+  methods, and promoted lessons.
+- Research operations: [`research/`](research/README.md) — the
+  [research registry](research/registry/RESEARCH_REGISTRY.md),
+  [strategy registry](research/registry/STRATEGY_REGISTRY.md), lifecycle
+  [templates](research/templates/), and [examples](research/examples/README.md).
+
+Every research project receives a stable research ID (`QT-R-###`) and every candidate strategy a
+strategy ID (`QT-S-###`). Falsifiable hypotheses, baseline comparison before promotion, retained
+negative results, linked evidence, and promoted lessons are mandatory. No knowledge item is
+claimed empirically validated without supplied evidence.
 
 ## Governance
 

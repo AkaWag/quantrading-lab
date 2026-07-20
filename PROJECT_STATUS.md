@@ -28,11 +28,18 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   [`reports/repository-health-audit-2026-07-19.md`](reports/repository-health-audit-2026-07-19.md).
 - Git version control initialized (ADR-001 accepted, owner Aka Wag): branch `main`, initial
   commit `5394f7a`, `.gitignore` excluding secrets and release artifacts.
+- Knowledge & Research department created (structure and documentation only, ADR-002 accepted):
+  [`knowledge/`](knowledge/README.md), [`research/`](research/README.md) registries/templates/
+  examples, and governing standards under [`docs/research/`](docs/research/RESEARCH_DEPARTMENT.md).
+  This establishes institutional memory and a controlled research entry point; it does **not**
+  exercise the research chain or demonstrate validation capability. Buildout follow-up:
+  [`reports/knowledge-research-department-buildout-2026-07-19.md`](reports/knowledge-research-department-buildout-2026-07-19.md).
 
 ## In progress
 
 - Governance review and adoption by the team/next session.
-- Ready to scaffold the first controlled research project (Priority 3).
+- Ready to run the first controlled research project through the new department
+  (observation → research question → hypothesis → specification), no implementation yet.
 
 ## Known issues
 
