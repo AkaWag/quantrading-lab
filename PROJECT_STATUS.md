@@ -43,8 +43,12 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 
 ## Known issues
 
-- No Git **remote** is configured (local repository only). Backup to a remote would require a
-  separate ADR (credentials / external trust boundary).
+- No Git **remote** is configured and **no off-machine backup exists** (local repository only) —
+  a single point of failure highlighted by a recent power outage. A backup and remote strategy has
+  been **proposed** (not implemented) in
+  [`decisions/ADR-003-backup-and-remote-repository-strategy.md`](decisions/ADR-003-backup-and-remote-repository-strategy.md);
+  see the review [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md).
+  Executing it requires human approval (credentials / external trust boundary).
 - `zip` is not installed (reported by `scripts/doctor.sh`). This is **not** a release blocker:
   `scripts/package-release.sh` uses `tar` + `sha256sum`. `unzip` is present.
 - `README.md` did not previously exist and was created during this session (placeholder-level,

@@ -20,8 +20,11 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 - [x] Confirm whether the workspace is under version control.
 - [x] Initialize Git with a `.gitignore` covering secrets (`.env`) and generated outputs
       (ADR-001 accepted; branch `main`; initial commit `5394f7a`).
-- [ ] Optional / deferred: configure a backup remote — requires a separate ADR
-      (credentials / external trust boundary).
+- [ ] Configure off-machine resilience (backup + remote) — strategy **proposed** in
+      [`decisions/ADR-003-backup-and-remote-repository-strategy.md`](decisions/ADR-003-backup-and-remote-repository-strategy.md)
+      (review: [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md)).
+      Not implemented; requires human approval of provider, destination, auth, and retention
+      before any remote/backup is created.
 
 ## Priority 2b — Knowledge & Research department (done)
 
