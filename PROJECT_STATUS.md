@@ -10,6 +10,8 @@ where facts cannot be confirmed. For the prioritized task list see
 - Governance onboarding is being established.
 - No V3 services are assumed to be installed.
 - No live execution or automated trading is enabled.
+- Controlled research may continue; production deployment, live trading, and closure of ADR-003
+  remain **blocked** until an off-machine backup restore test succeeds.
 
 ## Current phase
 
@@ -51,15 +53,19 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 
 ## Known issues
 
-- A private Git **remote is now configured** (`origin`, private GitHub over SSH) and `main` is
-  pushed and up to date — off-machine replication of committed history now exists. However, a
-  **full off-machine backup still does not exist**: a Git remote replicates only committed,
-  tracked files, not untracked/gitignored content (e.g. `.env`), external data, logs, or service
-  config. The complete hybrid backup-and-remote strategy remains **proposed** (not fully
-  implemented) in
-  [`decisions/ADR-003-backup-and-remote-repository-strategy.md`](decisions/ADR-003-backup-and-remote-repository-strategy.md);
-  see the review [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md).
-  The remaining encrypted full-workspace backup still requires human approval (credentials /
+- **Off-machine resilience is partial.** The GitHub **remote** (`origin`, private GitHub over
+  SSH) and **source replication** of committed history are **operational** (`main` pushed). The
+  **encrypted off-machine full-workspace backup is not yet implemented** — a Git remote replicates
+  only committed, tracked files, not untracked/gitignored content (e.g. `.env`), external data,
+  logs, or service config.
+- **External backup drive is a deferred operational dependency (not currently available).**
+  Required hardware: a **1 TB portable external SSD**, **USB 3.x or USB-C**, a **separate physical
+  device**, formatted **ext4** (Ubuntu-only) or **exFAT** only if cross-platform access is
+  required. The hybrid backup-and-remote strategy in
+  [`decisions/ADR-003-backup-and-remote-repository-strategy.md`](decisions/ADR-003-backup-and-remote-repository-strategy.md)
+  is therefore **partially implemented, not complete** (see also the review
+  [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md)).
+  Implementing the encrypted backup requires the drive plus human approval (credentials /
   external trust boundary).
 - `zip` is not installed (reported by `scripts/doctor.sh`). This is **not** a release blocker:
   `scripts/package-release.sh` uses `tar` + `sha256sum`. `unzip` is present.

@@ -1,15 +1,34 @@
 # ADR-003: Backup and remote repository strategy
 
-- Status: proposed
+- Status: partially implemented
 - Date: 2026-07-20
 - Owners: Aka Wag
 
-This ADR **proposes** a strategy and requires human approval before any part is executed.
+This ADR proposes a strategy and requires human approval before any part is executed.
 Selecting a remote or backup destination introduces credentials and an external trust boundary,
 which ADR-001 explicitly deferred to a separate ADR
 ([`ADR-001-adopt-git-and-backup.md`](ADR-001-adopt-git-and-backup.md)) and which
 [`../docs/governance/AI_OPERATING_PRINCIPLES.md`](../docs/governance/AI_OPERATING_PRINCIPLES.md)
-gates behind explicit approval. Nothing here is configured yet.
+gates behind explicit approval. Nothing here was configured at time of writing (2026-07-20); see
+the **Implementation status** note below for what has since been implemented.
+
+## Implementation status (2026-07-21)
+
+This ADR is **partially implemented**, not complete or accepted. The hybrid strategy must not be
+treated as done until the recovery test below succeeds.
+
+- **Done:** the private Git **remote** (Option 1 mechanism) is configured — `origin`, private
+  GitHub over SSH — and `main` is replicated off-machine.
+- **Not done:** the **encrypted full-workspace backup** (covering untracked/gitignored content,
+  external data, logs, and service config) is not implemented.
+- **Blocking dependency:** the required **external backup drive is not currently available** —
+  1 TB portable external SSD, USB 3.x/USB-C, a separate physical device, formatted ext4
+  (Ubuntu-only) or exFAT (only if cross-platform access is required). Recorded as a deferred
+  operational dependency in [`../PROJECT_STATUS.md`](../PROJECT_STATUS.md) and
+  [`../NEXT_ACTIONS.md`](../NEXT_ACTIONS.md).
+- **Gate:** controlled research may continue, but production deployment, live trading, and
+  **closure of this ADR remain blocked until a scratch restore test of the encrypted backup
+  succeeds** (see "Recovery testing expectations" below).
 
 ## Context
 

@@ -22,11 +22,18 @@ Do **not** begin parameter optimization, production deployment, or live trading 
       (ADR-001 accepted; branch `main`; initial commit `5394f7a`).
 - [x] Configure an off-machine Git **remote** — `origin` (private GitHub over SSH) is configured
       and `main` is pushed and up to date.
-- [ ] Complete off-machine resilience: the **encrypted full-workspace backup** in
+- [ ] **Procure the external backup drive (open requirement; not currently available).**
+      Specification: 1 TB portable external SSD; USB 3.x or USB-C; a separate physical device;
+      **ext4** if Ubuntu-only, **exFAT** only if cross-platform access is required.
+- [ ] **After procurement**, complete off-machine resilience per
       [`decisions/ADR-003-backup-and-remote-repository-strategy.md`](decisions/ADR-003-backup-and-remote-repository-strategy.md)
-      (review: [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md))
-      is still **proposed / not implemented** — a Git remote alone is not a full backup. Requires
-      human approval of destination, encryption/auth, and retention before it is created.
+      (review: [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md)):
+    - [ ] implement the **encrypted full-workspace backup** (covering untracked/gitignored content);
+    - [ ] run **checksum / integrity verification** of the backup;
+    - [ ] perform a **scratch restore test** into a throwaway location and confirm `scripts/verify.sh` passes;
+    - [ ] write a **recovery report** recording date, result, RPO/RTO, and any gaps.
+- [ ] **ADR-003 closure is blocked** until the restore test succeeds; a Git remote alone is not a
+      full backup, and requires human approval of destination, encryption/auth, and retention.
 
 ## Priority 2b — Knowledge & Research department (done)
 
