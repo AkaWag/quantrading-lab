@@ -51,12 +51,16 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 
 ## Known issues
 
-- No Git **remote** is configured and **no off-machine backup exists** (local repository only) —
-  a single point of failure highlighted by a recent power outage. A backup and remote strategy has
-  been **proposed** (not implemented) in
+- A private Git **remote is now configured** (`origin`, private GitHub over SSH) and `main` is
+  pushed and up to date — off-machine replication of committed history now exists. However, a
+  **full off-machine backup still does not exist**: a Git remote replicates only committed,
+  tracked files, not untracked/gitignored content (e.g. `.env`), external data, logs, or service
+  config. The complete hybrid backup-and-remote strategy remains **proposed** (not fully
+  implemented) in
   [`decisions/ADR-003-backup-and-remote-repository-strategy.md`](decisions/ADR-003-backup-and-remote-repository-strategy.md);
   see the review [`reports/backup-and-remote-strategy-review-2026-07-20.md`](reports/backup-and-remote-strategy-review-2026-07-20.md).
-  Executing it requires human approval (credentials / external trust boundary).
+  The remaining encrypted full-workspace backup still requires human approval (credentials /
+  external trust boundary).
 - `zip` is not installed (reported by `scripts/doctor.sh`). This is **not** a release blocker:
   `scripts/package-release.sh` uses `tar` + `sha256sum`. `unzip` is present.
 - `README.md` did not previously exist and was created during this session (placeholder-level,
@@ -64,7 +68,9 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 
 ## Risks
 
-- Without version control, history and rollback are not yet guaranteed (see roadmap Phase 2).
+- Version history and rollback are covered by Git with an off-machine remote; disaster recovery
+  of non-Git content (untracked/gitignored files, data) remains a gap until the full backup in
+  ADR-003 is implemented.
 - Backtest/compilation cannot be verified inside this workspace; TradingView is external
   (see [`docs/architecture/SYSTEM_BOUNDARIES.md`](docs/architecture/SYSTEM_BOUNDARIES.md)).
 
