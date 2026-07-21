@@ -34,6 +34,14 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   This establishes institutional memory and a controlled research entry point; it does **not**
   exercise the research chain or demonstrate validation capability. Buildout follow-up:
   [`reports/knowledge-research-department-buildout-2026-07-19.md`](reports/knowledge-research-department-buildout-2026-07-19.md).
+- **Ubuntu Operations Agent operational (ADR-004 accepted, owner Aka Wag):** Cursor CLI
+  (`agent` / `cursor-agent`, version `2026.07.17-3e2a980`) installed user-locally and
+  authenticated. Governed by [`AGENTS.md`](AGENTS.md) (operational onboarding),
+  [`.cursor/rules/ubuntu-operations.mdc`](.cursor/rules/ubuntu-operations.mdc) (always-applied
+  rule), and [`.cursor/cli.json`](.cursor/cli.json) (project permission boundary). Permission
+  matcher validated by an execute-capable test (safe read-only commands auto-run; secrets/sudo/
+  `rm -rf`/`git push` denied). It automates safe read-only operations only; approval gates remain
+  for architecture, releases, credentials, remotes, and live trading.
 
 ## In progress
 
@@ -65,9 +73,11 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 - OS: Ubuntu (Linux). Shell: bash.
 - Workspace path: this repository root (`VERSION` = `2.5.0`).
 - Tooling present per `doctor.sh`: bash, git, unzip, sha256sum, cursor CLI. Missing: zip.
+- Cursor CLI agent installed user-locally (`~/.local/bin/agent`, `~/.local/bin/cursor-agent`),
+  version `2026.07.17-3e2a980`; authenticated.
 - Secrets, if any, are expected in a non-committed `.env` and are not present in source.
 
 ## Last verified
 
-- 2026-07-19 — initial governance onboarding session. Re-verify on each new session using
-  [`docs/onboarding/FIRST_SESSION_CHECKLIST.md`](docs/onboarding/FIRST_SESSION_CHECKLIST.md).
+- 2026-07-21 — Ubuntu Operations Agent established and verified (ADR-004). Re-verify on each new
+  session using [`docs/onboarding/FIRST_SESSION_CHECKLIST.md`](docs/onboarding/FIRST_SESSION_CHECKLIST.md).

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Shell(git status)",
+      "Shell(git diff)",
+      "Shell(git log)",
+      "Shell(bash scripts/verify.sh)",
+      "Shell(bash scripts/doctor.sh)",
+      "Write(research/**)",
+      "Write(experiments/**)",
+      "Write(journals/**)",
+      "Write(reports/**)",
+      "Write(knowledge/**)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Write(.env)",
+      "Write(.env.*)",
+      "Shell(sudo)",
+      "Shell(rm -rf)",
+      "Shell(git push)"
+    ]
+  }
+}

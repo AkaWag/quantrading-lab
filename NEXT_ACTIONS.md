@@ -35,6 +35,17 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 - Note: this created the department only. The research chain is **not** exercised and validation
       capability is **not** demonstrated.
 
+## Priority 2c — Ubuntu Operations Agent (done)
+
+- [x] Install and authenticate the Cursor CLI (`agent` / `cursor-agent`) user-locally (no sudo).
+- [x] Establish the permission-bounded Operations Agent (ADR-004 accepted): [`AGENTS.md`](AGENTS.md),
+      [`.cursor/rules/ubuntu-operations.mdc`](.cursor/rules/ubuntu-operations.mdc), and
+      [`.cursor/cli.json`](.cursor/cli.json).
+- [x] Validate the `Shell(...)` permission matcher with an execute-capable test (safe read-only
+      commands auto-run; secrets/sudo/`rm -rf`/`git push` denied).
+- Note: re-run the execute-capable test after any `agent update`, since matcher semantics can
+      change with the CLI version.
+
 ## Priority 3 — Run one controlled research project (recommended next task)
 
 - [ ] Register the project in

@@ -1,0 +1,24 @@
+---
+description: Operational safety for running commands on the Ubuntu host
+alwaysApply: true
+---
+
+# Ubuntu operations
+
+Operational execution discipline for this Ubuntu-hosted workspace. This complements, and does
+not replace, `30-security-and-operations.mdc` (credentials, secrets, and third-party review) and
+`60-repository-hygiene.mdc`. Where they overlap, the stricter rule applies.
+
+- Run commands from the workspace root under `$HOME`; never operate from `/root` or system paths.
+- Default to non-destructive, clearly scoped commands. Do not run destructive or recursive
+  deletions/moves without an explicit, narrow target and human approval.
+- Do not use `sudo`, change global system configuration, or install system packages/services
+  without explicit human approval. Prefer project-local, version-controlled tooling.
+- Prefer the specialized file tools over shell for reading, searching, and editing files.
+- Treat `git push`, remote configuration, and history rewriting as approval-gated actions; local
+  commits are fine, remotes require a separate ADR (see `docs/architecture/SYSTEM_BOUNDARIES.md`).
+- Never echo, log, or write secrets. Keep secrets in a non-committed `.env`; never read `.env`
+  contents into prompts or output.
+- For long-running processes use `tmux`; do not leave interactive credentials on screen. Assume
+  the desktop session (e.g. Remmina) is exposed and should auto-lock.
+- Report the exact commands run and their results; do not claim success without verification.
