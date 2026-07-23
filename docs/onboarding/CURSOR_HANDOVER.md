@@ -23,6 +23,7 @@ A new session should, before broad changes, read:
 
 Pick the smallest set of specialist skills that fits the task, for example:
 
+- **Trading companion / charts / Shotgun** → `shotgun` (see [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md)).
 - Framing a market behavior or hypothesis → `market-behavior-researcher`, `hypothesis-designer`.
 - Specifying a strategy → `strategy-architect`, `risk-architect`.
 - Implementing Pine → `pine-v6-engineer` / `pine-v6-developer`.
@@ -31,6 +32,7 @@ Pick the smallest set of specialist skills that fits the task, for example:
   `robustness-analyst`, `walk-forward-analyst`, `monte-carlo-reviewer`.
 - Release decisions → `release-gatekeeper` / `release-reviewer`.
 - Ingesting external material → `update-intake-analyst`.
+- Central orchestration of research tasks → `research-director` (consumes Shotgun feedback packets).
 
 The full list is in [`../../.cursor/skills/`](../../.cursor/skills/); prefer the skill whose
 description matches the current gate in [`../WORKFLOW.md`](../WORKFLOW.md).
@@ -55,8 +57,7 @@ At the end of a work session, provide a handover summary containing:
 
 ## Related documents
 
-- [`DIRECTOR_OPERATING_MODEL.md`](DIRECTOR_OPERATING_MODEL.md) — Path A director, Option 3 tokens,
-  MCP shapes, GitHub shared handoff
+- [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md) — Shotgun trading companion
 - [`FIRST_SESSION_CHECKLIST.md`](FIRST_SESSION_CHECKLIST.md)
 - [`../governance/AI_OPERATING_PRINCIPLES.md`](../governance/AI_OPERATING_PRINCIPLES.md)
 - [`../WORKFLOW.md`](../WORKFLOW.md)

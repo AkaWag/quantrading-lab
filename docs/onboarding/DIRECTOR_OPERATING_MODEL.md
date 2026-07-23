@@ -9,6 +9,7 @@ Does **not** authorize live trading, production deploy, or revival of the HTTPS 
 | Layer | Choice |
 |---|---|
 | Director seat (repo governance) | Cursor Agent with `research-director` |
+| Trading companion (charts / trade support) | **Shotgun** — Cursor skill `shotgun` ([`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md)) |
 | Agent Live (real-time dual-agent lab) | **Signum external** — `~/signum-ai-strategy/` (Codex + Claude/Hermes, panel `:8788`) |
 | Optional offline directors | ChatGPT Desktop and/or Claude Desktop (subscription) |
 | Shared durable handoff bus | Private GitHub `origin` (`AkaWag/quantrading-lab`) |
@@ -20,6 +21,23 @@ Does **not** authorize live trading, production deploy, or revival of the HTTPS 
 | MCP Shape C | Unofficial LLM-bridge MCP — deferred |
 | ADR-006 HTTPS bridge | **Archived** (superseded by ADR-007) |
 | Port Signum → `agent-development/` | **Deferred** (future ADR) |
+
+## Shotgun (trading companion)
+
+**Shotgun** is available from **ground zero** (research → build → test → live support). It is the
+owner’s chart/trading companion (quant + manual craft), not Signum and not the director.
+
+```text
+Owner + Shotgun (TradingView charts, rules, trade reasoning)
+  → Shotgun → Director feedback packets
+research-director (central synthesize → tasks / gates)
+  → specialists and/or Signum brain when needed
+```
+
+- Mandate: [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md)
+- Skill: [`../../.cursor/skills/shotgun/SKILL.md`](../../.cursor/skills/shotgun/SKILL.md)
+- QA-pass is a **promotion** gate for strategies, not a lockout for Shotgun companionship.
+- Live capital remains human-gated; TV → middleman → broker is the known execution pattern.
 
 ## Agent Live vs live money
 
@@ -94,11 +112,12 @@ Signum / Desktop / Cursor
 ## Pickup phrase
 
 > Continue QuanTrading V2.5. ADR-007: Signum Agent Live external; GitHub handoff bus; ADR-006
-> archived. Gold pilot QT-R-001 — EV-001 then TEMPORAL + B1–B6. No live money. No Pine /
-> QT-S-### until separate approval. Port Signum later.
+> archived. Shotgun = chart/trading companion from ground zero → feeds research-director.
+> Gold pilot QT-R-001 — EV-001 then TEMPORAL + B1–B6. No live money without gate. Port Signum later.
 
 ## Related documents
 
+- [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md) — Shotgun trading companion
 - [`ADR-007`](../../decisions/ADR-007-external-signum-agent-lab-archive-adr-006.md)
 - [`CURSOR_HANDOVER.md`](CURSOR_HANDOVER.md)
 - [`../../PROJECT_STATUS.md`](../../PROJECT_STATUS.md)

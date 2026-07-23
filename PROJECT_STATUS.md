@@ -13,13 +13,15 @@ where facts cannot be confirmed. For the prioritized task list see
 - Controlled research may continue; production deployment, live trading, and closure of ADR-003
   remain **blocked** until an off-machine backup restore test succeeds.
 - **Operating model (ADR-007, 2026-07-23):** Cursor `research-director` for repo governance;
-  **Signum Agent Live external** (`~/signum-ai-strategy/`) for real-time dual-agent work;
-  **private GitHub `origin` as durable handoff bus**; Option 3 hybrid Cursor tokens. SOP:
-  [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
+  **Shotgun** trading companion (charts / ground-zero support) → feeds director;
+  **Signum Agent Live external** for heavy compute; **GitHub `origin`** as durable handoff bus.
+  SOP: [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md);
+  Shotgun: [`docs/onboarding/SHOTGUN_AGENT.md`](docs/onboarding/SHOTGUN_AGENT.md).
 - **ADR-006 HTTPS ChatGPT↔Cursor bridge: archived** (superseded by ADR-007). Gate 1 code may
   remain as historical R&D only — not the ops path.
 - **ASAP critical path:** gold / **QT-R-001** Signum Agent Live pilot (lab agents, **not** live
   money) — [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md).
+  Shotgun available in parallel for chart companionship from ground zero.
 
 ## Current phase
 

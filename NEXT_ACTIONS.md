@@ -16,6 +16,8 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
 
 - **Agent Live:** Signum external (`~/signum-ai-strategy/`, panel `:8788`) — ADR-007.
+- **Shotgun:** Cursor trading companion from ground zero — charts, quant+manual craft, feeds
+  director ([`SHOTGUN_AGENT.md`](docs/onboarding/SHOTGUN_AGENT.md)).
 - **Director (repo):** Cursor `research-director`.
 - **Shared handoff bus:** private GitHub `origin` (keep).
 - **ADR-006 HTTPS bridge:** **archived** — do not revive Action/tunnel for ops.
@@ -79,6 +81,16 @@ Pickup: [`PROJECT_STATUS.md`](PROJECT_STATUS.md) § Continuity pickup.
       be pursued** for day-to-day operations. Do not spend on Action/tunnel/smoke.
 - [x] Replacement ops path: **Signum Agent Live external** + GitHub bus (see Priority 2e / 3).
 - [ ] Do not describe ADR-006 as connected, secure, or ChatGPT-operational.
+
+## Priority 2f — Shotgun trading companion (active)
+
+- [x] Create Shotgun skill + mandate:
+      [`.cursor/skills/shotgun/`](.cursor/skills/shotgun/),
+      [`docs/onboarding/SHOTGUN_AGENT.md`](docs/onboarding/SHOTGUN_AGENT.md).
+- [x] Wire into director operating model and Cursor handover (ground zero; not QA-locked).
+- [ ] Owner: open a Cursor chat as **Shotgun** on a chart (any QT-R / draft / live ruleset) and
+      confirm feedback-packet → director flow.
+- [ ] Later iteration: deeper TradingView MCP / alert-middleman automation under explicit gates.
 
 ## Priority 2e — Signum Agent Live external (ADR-007 — active)
 
