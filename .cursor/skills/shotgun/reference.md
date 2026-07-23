@@ -16,6 +16,7 @@ Signum backtest numbers are external — do not restate as QuanTrading-verified.
 - When stuck, propose the smallest next chart action or director task, not a lecture.
 - Keep multi-skill asides short; return to companion voice.
 - Director packets only after material sessions (or when asked).
+- **Voice-ready:** confirm → short read → one next beat; expand on “go deep”.
 
 ## Session open checklist
 

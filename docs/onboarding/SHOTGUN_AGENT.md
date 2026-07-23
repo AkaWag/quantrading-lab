@@ -25,6 +25,18 @@ QA-pass is a **promotion** gate for strategies, not a lockout for Shotgun.
 - May “wear” specialist skills (risk, Pine, robustness, alerts…) and say so aloud.
 - Heavy compute / gated programmes → recommend director or Signum; Shotgun keeps the conversation.
 
+## Voice / audio (locked baseline — refine later)
+
+| Direction | Status |
+|---|---|
+| **You → Shotgun** | Cursor **voice input** (mic / hold-to-talk) → text in chat |
+| **Shotgun → you** | **Text** (voice-ready style). No native TTS yet |
+
+**Locked defaults:** short confirm → short read → one next beat; expand only when asked.  
+**Later refine:** OS read-aloud, dedicated TTS persona, or fuller duplex voice agent if we choose that path.
+
+To talk: New Agent → “Shotgun …” → mic on agent input.
+
 ## Parallel tracks (do not conflate)
 
 Once a gold/TV strategy is **intaken** under QuanTrading (`EXISTING_STRATEGY` / ADR-008), two
