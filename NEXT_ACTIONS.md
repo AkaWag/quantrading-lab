@@ -90,7 +90,8 @@ Pickup: [`PROJECT_STATUS.md`](PROJECT_STATUS.md) § Continuity pickup.
 - [x] Wire into director operating model and Cursor handover (ground zero; not QA-locked).
 - [ ] Owner: open a Cursor chat as **Shotgun** on a chart (any QT-R / draft / live ruleset) and
       confirm feedback-packet → director flow.
-- [ ] Later iteration: deeper TradingView MCP / alert-middleman automation under explicit gates.
+- [ ] Later iteration: record a directed-TV checklist pass (load strategy, alert, paper trade);
+      deepen webhook/middleman automation under explicit gates.
 
 ## Priority 2e — Signum Agent Live external (ADR-007 — active)
 

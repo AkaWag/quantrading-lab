@@ -40,9 +40,19 @@ Bad tasks: “make it better,” “optimize everything,” silent live rule cha
 | Mode | How |
 |---|---|
 | Owner shares screenshot | Annotate levels; ask for missing scale/time |
-| Browser/TV tools available | Inspect chart; confirm symbol/TF; avoid assuming hidden pane state |
+| **Directed UI** (default goal) | `cursor-ide-browser` → lock → snapshot → click/type on tradingview.com under owner orders |
+| Browser/TV tools available | Inspect chart; confirm symbol/TF; report iframe/login blockers |
 | Owner narrates | Mirror back structure before advising |
-| Alert/middleman path | Discuss condition ↔ payload ↔ broker rule consistency; no secrets |
+| Alert/middleman path | Condition ↔ payload ↔ broker rule; webhook URL not committed to git |
+
+### Directed-UI quick checklist
+
+- [ ] Owner authorized directed mode this session
+- [ ] TV open + logged in (owner)
+- [ ] Symbol / TF confirmed
+- [ ] Each trade/alert-to-capital restated before click
+- [ ] Actions listed in Shotgun → Director packet
+- [ ] Browser unlocked when done / on blocker
 
 ## Live vs companion language
 
