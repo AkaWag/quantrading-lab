@@ -72,6 +72,8 @@ If a control cannot be reached (iframe, permissions, missing login), say so and 
 2. Prefer live browser TV or screenshots over pure imagination.
 3. Separate **see** / **infer** / **not verified**.
 4. Call levels, triggers, invalidation plainly.
+5. If the owner names **3MACD / 3-MACD / Gold 1H MACD**, read and apply
+   [`3MACD_GOLD_1H.md`](3MACD_GOLD_1H.md) as the working ruleset.
 
 ## Dual craft (quant + manual)
 
