@@ -15,7 +15,9 @@ A new session should, before broad changes, read:
    plus any matching the files being edited, e.g. Pine rules for `*.pine`).
 4. The current state in [`../../PROJECT_STATUS.md`](../../PROJECT_STATUS.md) and the prioritized
    work in [`../../NEXT_ACTIONS.md`](../../NEXT_ACTIONS.md).
-5. The relevant skill files for the task under [`../../.cursor/skills/`](../../.cursor/skills/).
+5. The director / tokens / GitHub handoff SOP:
+   [`DIRECTOR_OPERATING_MODEL.md`](DIRECTOR_OPERATING_MODEL.md).
+6. The relevant skill files for the task under [`../../.cursor/skills/`](../../.cursor/skills/).
 
 ## Choosing specialist skills
 
@@ -53,6 +55,8 @@ At the end of a work session, provide a handover summary containing:
 
 ## Related documents
 
+- [`DIRECTOR_OPERATING_MODEL.md`](DIRECTOR_OPERATING_MODEL.md) — Path A director, Option 3 tokens,
+  MCP shapes, GitHub shared handoff
 - [`FIRST_SESSION_CHECKLIST.md`](FIRST_SESSION_CHECKLIST.md)
 - [`../governance/AI_OPERATING_PRINCIPLES.md`](../governance/AI_OPERATING_PRINCIPLES.md)
 - [`../WORKFLOW.md`](../WORKFLOW.md)

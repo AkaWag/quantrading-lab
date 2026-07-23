@@ -46,7 +46,27 @@ assigned, even if the title, owner, or status changes.
   A strategy ID is only created once a research project produces a candidate implementation.
 
 A research project may never become a strategy; that is expected and acceptable. A strategy
-always references the research ID that produced it.
+always references the research ID that produced it. Strategy IDs are **stable across revisions**;
+versions change with semantic versioning (see
+[`RESEARCH_STREAMS.md`](RESEARCH_STREAMS.md)).
+
+## Research streams
+
+Research is coordinated in four streams — **not** a single undifferentiated process:
+
+| Stream | Use when |
+|---|---|
+| `NEW_STRATEGY` | New market hypothesis or strategy concept |
+| `EXISTING_STRATEGY` | Revising an existing Pine/manual/prior strategy (frozen baseline required) |
+| `BLACK_BOX_STRATEGY` | Locked / source-unavailable TradingView strategy |
+| `VALIDATION` | Independent verification of claims and evidence |
+
+Full rules, EXISTING/BLACK_BOX controls, and the WIP guideline:
+[`RESEARCH_STREAMS.md`](RESEARCH_STREAMS.md) (ADR-005).
+
+Session-aware projects also follow
+[`../../knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md`](../../knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md)
+(Asia → London → overlap → New York → next Asia; UTC + IANA; London not isolated).
 
 ## Naming and directory conventions
 
@@ -116,6 +136,7 @@ documents also carry an owner responsible for keeping them current.
 
 - [`KNOWLEDGE_MANAGEMENT.md`](KNOWLEDGE_MANAGEMENT.md)
 - [`RESEARCH_ARTIFACT_MODEL.md`](RESEARCH_ARTIFACT_MODEL.md)
+- [`RESEARCH_STREAMS.md`](RESEARCH_STREAMS.md)
 - [`RESEARCH_REVIEW_PROCESS.md`](RESEARCH_REVIEW_PROCESS.md)
 - [`../WORKFLOW.md`](../WORKFLOW.md) · [`../governance/STRATEGY_LIFECYCLE.md`](../governance/STRATEGY_LIFECYCLE.md)
 - [`../../knowledge/README.md`](../../knowledge/README.md) · [`../../research/README.md`](../../research/README.md)

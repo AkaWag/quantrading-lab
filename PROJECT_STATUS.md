@@ -12,6 +12,17 @@ where facts cannot be confirmed. For the prioritized task list see
 - No live execution or automated trading is enabled.
 - Controlled research may continue; production deployment, live trading, and closure of ADR-003
   remain **blocked** until an off-machine backup restore test succeeds.
+- **Operating model (2026-07-23):** Path A Cursor-native research director; **Option 3 hybrid
+  tokens** (Cursor subscription primary; OpenRouter only when deliberately needed for catalog /
+  cost); **private GitHub `origin` as the shared handoff bus** between optional Desktop directors
+  (ChatGPT / Claude) and Cursor agents. Prefer a frontier model for director turns and a
+  cost-effective model (e.g. Grok 4.5 Fast) for implementation. Full SOP:
+  [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
+- ChatGPT–Cursor Orchestration Bridge (ADR-006): local loopback prototype exists (Gate 1 done).
+  **External stages (Gates 4–5: Cloudflare / Custom GPT Action) are paused for cost.** Gates 2–3
+  are not active work; do not burn agent/API budget on bridge smoke unless explicitly reopened.
+  The bridge is **not** connected, production, or ChatGPT-operational. Desktop↔Cursor handoff
+  uses **GitHub artifacts**, not the HTTPS bridge.
 
 ## Current phase
 
@@ -48,8 +59,25 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 ## In progress
 
 - Governance review and adoption by the team/next session.
-- Ready to run the first controlled research project through the new department
-  (observation → research question → hypothesis → specification), no implementation yet.
+- **Research-stream architecture established** (ADR-005): `NEW_STRATEGY`, `EXISTING_STRATEGY`,
+  `BLACK_BOX_STRATEGY`, `VALIDATION` — see
+  [`docs/research/RESEARCH_STREAMS.md`](docs/research/RESEARCH_STREAMS.md). Registry/templates
+  carry a **Stream** field. Strategy IDs remain stable across revisions (semver).
+- **Global session architecture established:** Asia → London → London–NY overlap → New York →
+  next Asia; UTC + IANA (`Europe/London`, `America/New_York`); London not isolated —
+  [`knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md`](knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md).
+- **QT-R-001** — *XAUUSD Global Session Transition and London Breakout Research* — stream
+  `NEW_STRATEGY`, status **`EVIDENCE-GATHERING`**, under
+  [`research/strategies/20260721-xauusd-global-session-transition-london-breakout/`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/README.md).
+  Focus: Asia context → London opportunity → New York response. **Experiment plan accepted
+  2026-07-23** (`A-TK` Tokyo, six baselines, IS/VAL/OOS, cost ladder) —
+  [acceptance](research/strategies/20260721-xauusd-global-session-transition-london-breakout/reviews/2026-07-23-experiment-plan-acceptance.md).
+  Evidence still `none`; **blocked on EV-001 data**. No strategy ID, Pine, or optimization.
+  **Next:** supply/link XAUUSD 15m UTC data → TEMPORAL → B1–B6.
+- **ChatGPT–Cursor Orchestration Bridge local prototype dormant (ADR-006, Path A):** Gate 1 local
+  implementation exists (CLI-backed, loopback-only). External Custom GPT / Cloudflare work and
+  further verification spend are **paused for cost**. Critical path returns to **QT-R-001 research
+  review**. See [`docs/architecture/ORCHESTRATION_BRIDGE.md`](docs/architecture/ORCHESTRATION_BRIDGE.md).
 
 ## Known issues
 
@@ -71,6 +99,8 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   `scripts/package-release.sh` uses `tar` + `sha256sum`. `unzip` is present.
 - `README.md` did not previously exist and was created during this session (placeholder-level,
   governance-focused).
+- The orchestration bridge has project-local service code and dependencies, but no tunnel, Custom
+  GPT Action, enabled MCP connection, production service, or external end-to-end evidence.
 
 ## Risks
 
@@ -79,6 +109,10 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   ADR-003 is implemented.
 - Backtest/compilation cannot be verified inside this workspace; TradingView is external
   (see [`docs/architecture/SYSTEM_BOUNDARIES.md`](docs/architecture/SYSTEM_BOUNDARIES.md)).
+- The planned bridge creates high-impact external-client, ingress, service, Cursor SDK, workspace,
+  state, and optional MCP trust boundaries. External exposure remains blocked until authentication,
+  isolation, replay, denial, redaction, retention, rollback, and incident-response controls are
+  separately approved and evidenced.
 
 ## Environment assumptions
 
@@ -89,7 +123,49 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   version `2026.07.17-3e2a980`; authenticated.
 - Secrets, if any, are expected in a non-committed `.env` and are not present in source.
 
+## Continuity pickup (Path A + Option 3 + GitHub bus)
+
+When resuming after a break:
+
+1. Read this file and [`NEXT_ACTIONS.md`](NEXT_ACTIONS.md); follow
+   [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
+2. Check Git shared-bus state: `git status`, branch vs `origin`; remember **uncommitted work is
+   not on GitHub**. Prefer Cursor `research-director` +
+   [`prompts/00-run-full-pipeline.md`](prompts/00-run-full-pipeline.md). Do not reopen ChatGPT
+   Action / Cloudflare / OpenAI API orchestration spend without a separate cost-approved decision.
+3. **Tokens:** Cursor subscription default; OpenRouter only for deliberate catalog/cost routing.
+4. **MCP:** curated Cursor tool MCP (Shape A) after review; Desktop subscription hosts (Shape B)
+   OK for offline direction that lands as GitHub artifacts; unofficial LLM-bridge MCP (Shape C)
+   deferred. Bridge MCP adapter remains disabled.
+5. **Next product work:** QT-R-001 evidence gathering — complete EV-001 (XAUUSD 15m UTC data),
+   then TEMPORAL + six baselines. No Pine / QT-S-###.
+6. **Ops:** ADR-003 backup remains blocked until the external SSD is available.
+7. **Bridge:** treat ADR-006 local code as dormant R&D; Gates 4–5 deferred; do not claim ChatGPT
+   can drive Cursor agents over HTTPS.
+
+### GitHub shared-bus viability (snapshot)
+
+| Item | Status |
+|---|---|
+| Private `origin` configured and `main` pushed | Ready |
+| Desktop → GitHub write path | Process gap — land specs/decisions as committed artifacts or PR text (not silent sync) |
+| Cursor agents implement from repo | Ready |
+| Agent `git push` | Human-approved only (by design) |
+| Uncommitted local trees | Not on the bus until committed/pushed |
+
+Pickup phrase:
+
+> Continue QuanTrading V2.5. Path A director on Cursor tokens (frontier director, cheap
+> implementers). OpenRouter only when deliberate. Shared handoff = private GitHub. ChatGPT/Claude
+> Desktop may write artifacts into the repo; Cursor implements. ADR-006 HTTPS bridge paused.
+> Next product work is QT-R-001 EV-001 data then TEMPORAL + B1–B6 (evidence only).
+
 ## Last verified
 
 - 2026-07-21 — Ubuntu Operations Agent established and verified (ADR-004). Re-verify on each new
   session using [`docs/onboarding/FIRST_SESSION_CHECKLIST.md`](docs/onboarding/FIRST_SESSION_CHECKLIST.md).
+- 2026-07-23 — Path A + Option 3 hybrid tokens + GitHub shared-handoff bus documented; ADR-006
+  external stages paused for cost. Bridge Gates 2–5 not evidenced as complete; ChatGPT↔Cursor
+  HTTPS is not operational.
+- 2026-07-23 — QT-R-001 experiment plan **accepted**; status `EVIDENCE-GATHERING`; EV-001 data
+  gate open (blocking).

@@ -9,9 +9,13 @@ and [`../../docs/governance/REVIEW_AND_RELEASE.md`](../../docs/governance/REVIEW
 
 ## Conventions
 
-- **Strategy ID:** `QT-S-###`, assigned sequentially; never reused.
+- **Strategy ID:** `QT-S-###`, assigned sequentially; never reused for a different strategy.
+  The **same strategy ID is kept across revisions**; versions use **semantic versioning**
+  (`MAJOR.MINOR.PATCH`). See [`../../docs/research/RESEARCH_STREAMS.md`](../../docs/research/RESEARCH_STREAMS.md).
 - **Lifecycle state:** `IDEA`, `RESEARCH`, `PROTOTYPE`, `VERIFIED`, `VALIDATION`, `CANDIDATE`,
   `APPROVED`, `RETIRED` (see [`../../docs/governance/STRATEGY_LIFECYCLE.md`](../../docs/governance/STRATEGY_LIFECYCLE.md)).
+- **Related research ID / stream:** every strategy references the `QT-R-###` that produced or
+  revised it; note whether that research was `NEW_STRATEGY`, `EXISTING_STRATEGY`, etc.
 - **Validation status:** short phrase (e.g. `no evidence`, `compiled`, `temporal-audited`,
   `backtested-IS`, `OOS`, `robustness`) — never claim beyond supplied evidence.
 - **Release status:** `blocked` / `research` / `paper-test` / `approved`
