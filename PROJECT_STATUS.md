@@ -75,10 +75,13 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   **Signum external Agent Live pilot ready:**
   [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md).
   **Next:** start Signum with QT-R-001 kickoff → close EV-001 → TEMPORAL → B1–B6.
-- **ADR-007 accepted:** Signum external Agent Lab; ADR-006 archived; port to `agent-development/`
-  deferred. Inbox:
-  [`research/inbox/2026-07-23-signum-bridge-handover/`](research/inbox/2026-07-23-signum-bridge-handover/).
-- **ADR-006 archived:** HTTPS orchestration not ops; do not spend on Gates 2–5 / Action / tunnel.
+- **ADR-008 accepted:** Signum TradingView **gold strategies** intake into `EXISTING_STRATEGY`
+  streams (QT-R-002 active; QT-R-003/004 parked). Index:
+  [`research/inbox/2026-07-23-signum-gold-tv-intake/`](research/inbox/2026-07-23-signum-gold-tv-intake/README.md).
+  Purpose: structured baseline → reproduce → improve under QuanTrading — not orphan Signum-only
+  optimisation.
+- **QT-R-002** (active EXISTING): Gold 4H MACD 4C Squatter — baseline freeze next.
+- **QT-R-001** remains parallel `NEW_STRATEGY` (session research), not a substitute for gold/TV intake.
 
 ## Known issues
 

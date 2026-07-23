@@ -6,7 +6,9 @@
 `~/signum-ai-strategy/backtest/engine_repo/reports/optimization/GOLD_1H_3MACD_PRODUCTION_READY_2026-05-18.md`  
 **Desk staging:** `~/signum-ai-strategy/docs/DESKS-3MACD-ASSIST-STAGING.md`  
 **Ingested into QuanTrading for Shotgun:** 2026-07-23  
-**QuanTrading status:** reference for companionship — **not** yet a `QT-S-###`; Signum backtest claims are **external evidence**, not re-verified here.
+**QuanTrading status:** intake as **QT-R-004** (`EXISTING_STRATEGY`, parked queue per ADR-008).
+Shotgun may companion now. Signum backtest claims are **external evidence**, not re-verified here.
+Lab improvement requires [`BASELINE.md`](../../../research/strategies/20260723-gold-1h-3macd-confluence/BASELINE.md) freeze first.
 
 ---
 

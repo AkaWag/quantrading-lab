@@ -8,9 +8,14 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 
 ## Continuity (ADR-007 Signum external + GitHub bus — 2026-07-23)
 
-**Immediate product next action:** Start **Signum Agent Live** on gold QT-R-001
-([`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md))
-→ close **EV-001** → TEMPORAL + B1–B6. Lab agents only — **not** live money. Not Pine. Not ADR-006.
+**Immediate product next actions:**
+
+1. **EXISTING gold/TV apparatus (ADR-008):** QT-R-002 baseline freeze → pin Pine → reproduce  
+   ([`20260723-gold-4h-macd4c-signal-squatter`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/)).
+2. **Shotgun** may companion on QT-R-004 / 3MACD anytime (parked research, ground-zero OK).
+3. **QT-R-001** Signum Agent Live / EV-001 remains parallel NEW_STRATEGY work when scheduled.
+
+Not ADR-006. Not unsupervised live money.
 
 **Operating model:** See
 [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
@@ -82,7 +87,16 @@ Pickup: [`PROJECT_STATUS.md`](PROJECT_STATUS.md) § Continuity pickup.
 - [x] Replacement ops path: **Signum Agent Live external** + GitHub bus (see Priority 2e / 3).
 - [ ] Do not describe ADR-006 as connected, secure, or ChatGPT-operational.
 
-## Priority 2f — Shotgun trading companion (active)
+## Priority 2g — Signum gold/TV → QuanTrading EXISTING streams (ADR-008 — active)
+
+- [x] Accept ADR-008; intake index:
+      [`research/inbox/2026-07-23-signum-gold-tv-intake/`](research/inbox/2026-07-23-signum-gold-tv-intake/README.md).
+- [x] Register QT-R-002 (active), QT-R-003 (parked), QT-R-004 (parked queue).
+- [ ] **QT-R-002:** complete [`BASELINE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/BASELINE.md)
+      freeze; pin Pine into QT or hash-pin; reproduce under declared costs (first EXISTING loop).
+- [ ] Queue QT-R-004 (3MACD) baseline after R-002 or on owner reprioritise; Shotgun companionship allowed now.
+- [ ] Do not assign `QT-S-###` until EXISTING baseline + reproduce gates pass.
+- [ ] Do not treat Signum fleet grades / “production ready” as QuanTrading-verified.
 
 - [x] Create Shotgun skill + mandate:
       [`.cursor/skills/shotgun/`](.cursor/skills/shotgun/),

@@ -28,6 +28,9 @@ and [`../../docs/research/RESEARCH_STREAMS.md`](../../docs/research/RESEARCH_STR
 | Research ID | Stream | Title | Owner | Status | Category | Market | Timeframe | Hypothesis link | Evidence stage | Last review | Next decision |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | QT-R-001 | NEW_STRATEGY | XAUUSD Global Session Transition and London Breakout Research | Aka Wag | EVIDENCE-GATHERING | BREAKOUT (SESSION, VOL, MOMENTUM) | XAUUSD | 15m | ../strategies/20260721-xauusd-global-session-transition-london-breakout/HYPOTHESIS.md | none | 2026-07-23 | Signum Agent Live pilot (external): close EV-001 then TEMPORAL + B1–B6 — no Pine / QT-S-### / live money |
+| QT-R-002 | EXISTING_STRATEGY | Gold 4H MACD 4C Signal Squatter (Signum Gold_4H_MACD_v20) | Aka Wag | OBSERVED | TREND (MACD) | XAUUSD | 4H | ../strategies/20260723-gold-4h-macd4c-signal-squatter/INTAKE.md | none (external claims only) | 2026-07-23 | **Active EXISTING:** complete BASELINE freeze → pin Pine → reproduce under QT costs |
+| QT-R-003 | EXISTING_STRATEGY | Gold 1H MACD 4C Signal Squatter (Signum Gold_1H_MACD_v21) | Aka Wag | OBSERVED | TREND (MACD) | XAUUSD | 1H | ../strategies/20260723-gold-1h-macd4c-signal-squatter/INTAKE.md | none (external claims only) | 2026-07-23 | **Parked** (fleet Grade C); revisit after QT-R-002 loop or retire vs QT-R-004 |
+| QT-R-004 | EXISTING_STRATEGY | Gold 1H 3-MACD Confluence v2.2 | Aka Wag | OBSERVED | TREND (MACD, T3) | XAUUSD | 1H | ../strategies/20260723-gold-1h-3macd-confluence/INTAKE.md | none (external claims only) | 2026-07-23 | **Parked queue** (Shotgun OK); baseline freeze after QT-R-002 or on owner reprioritise |
 
 <!--
 Row example (do not treat as a real project):
