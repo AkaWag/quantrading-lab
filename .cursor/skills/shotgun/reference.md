@@ -1,8 +1,13 @@
 # Shotgun — reference
 
-## When to deepen
+## Active strategy focus — 3-MACD Gold 1H
 
-Read this when structuring long chart sessions, trade journals, or director handoffs.
+When the owner says **3MACD**, **3-MACD**, or Gold 1H MACD confluence, load:
+
+[`3MACD_GOLD_1H.md`](3MACD_GOLD_1H.md)
+
+Use those rules for chart companionship and directed TradingView actions unless the owner overrides.
+Signum backtest numbers are external — do not restate as QuanTrading-verified.
 
 ## Session open checklist
 
