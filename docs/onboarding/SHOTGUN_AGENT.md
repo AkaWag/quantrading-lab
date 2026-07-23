@@ -14,16 +14,28 @@ load strategy, alerts, trades) via Cursor’s browser tools — hands on the ter
 
 QA-pass is a **promotion** gate for strategies, not a lockout for Shotgun.
 
-## Stack position
+## Parallel tracks (do not conflate)
+
+Once a gold/TV strategy is **intaken** under QuanTrading (`EXISTING_STRATEGY` / ADR-008), two
+tracks run **in parallel**:
+
+| Track | Who | What |
+|---|---|---|
+| **Lab stream** | research-director + specialists (+ Signum compute when tasked) | Baseline freeze → reproduce → controlled improvement → evidence / possible `QT-S-###` |
+| **Shotgun chart-live** | Shotgun under a **specific brief** tied to a `QT-R-###` | Direct testing on the **TradingView chart** (load strategy, read signals, alerts, paper/live UI under owner direction) |
+
+Shotgun chart-live does **not** replace the stream. It **feeds** it: observations and directed-UI
+results become Shotgun → Director packets attached to that research ID.
 
 ```text
-Owner (directs) + Shotgun (companion + TV UI hands)
-        → feedback packets
-Cursor research-director (central manager)
-        → specialists / Signum when needed
-GitHub bus
-Execution: TV UI and/or TV alert → middleman → broker
+QT-R-00N intake / baseline / evidence  ←—— parallel ——→  Shotgun brief on TV chart
+                ↑                                              │
+                └──────── feedback packets / owner accept ─────┘
 ```
+
+- Brief must name the research ID (e.g. QT-R-004 3MACD, QT-R-002 Gold 4H).
+- Chart-live may start as soon as intake exists; **promotion** still needs stream gates.
+- “Live on the chart” ≠ unsupervised live capital — owner still directs orders/alerts that can fire money.
 
 ## TradingView capability (directed)
 
@@ -40,16 +52,13 @@ Execution: TV UI and/or TV alert → middleman → broker
 logged in (or you complete login). This is UI automation under supervision — not a silent TV API
 and not unsupervised live trading.
 
-### How to run a directed TV session
-
-1. **New Agent** under `akawag/quantrading-lab`.
-2. First message example:
+### Example brief (parallel chart-live)
 
 ```text
-Shotgun — directed TradingView mode.
-I am logged into TradingView (or will log in when you open the browser).
-Under my direction you may: navigate charts, load strategies, set alerts, and take trades when I explicitly say so.
-Start by opening TradingView for XAUUSD 15m. Wait for my next instruction.
+Shotgun — brief QT-R-004 (3MACD Gold 1H v2.2).
+Directed TradingView mode: load the strategy/overlays I name, watch 1H XAUUSD,
+call rule-fit vs discretion, set alerts only when I say, paper trades only unless I say live.
+Feed director packets to QT-R-004 after the session.
 ```
 
 3. Keep that Agent chat for the chart session; say **stop** or use browser **Take Control** anytime.

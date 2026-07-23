@@ -34,6 +34,11 @@ research-director (central synthesize → tasks / gates)
   → specialists and/or Signum brain when needed
 ```
 
+**Parallel to EXISTING intake (ADR-008):** after a gold/TV strategy is registered as `QT-R-###`,
+Shotgun works a **named brief** on that ID and tests **directly on the TradingView chart** while
+the lab stream freezes baselines and reproduces evidence. Chart-live feeds the stream; it does
+not skip it.
+
 - Mandate: [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md)
 - Skill: [`../../.cursor/skills/shotgun/SKILL.md`](../../.cursor/skills/shotgun/SKILL.md)
 - QA-pass is a **promotion** gate for strategies, not a lockout for Shotgun companionship.
