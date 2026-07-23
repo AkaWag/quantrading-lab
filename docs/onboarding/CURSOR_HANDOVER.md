@@ -57,6 +57,7 @@ At the end of a work session, provide a handover summary containing:
 
 ## Related documents
 
+- [`DIRECTOR_OPERATING_MODEL.md`](DIRECTOR_OPERATING_MODEL.md) — director, Shotgun, Signum, GitHub bus
 - [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md) — Shotgun trading companion
 - [`FIRST_SESSION_CHECKLIST.md`](FIRST_SESSION_CHECKLIST.md)
 - [`../governance/AI_OPERATING_PRINCIPLES.md`](../governance/AI_OPERATING_PRINCIPLES.md)
