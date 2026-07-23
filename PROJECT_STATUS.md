@@ -12,17 +12,14 @@ where facts cannot be confirmed. For the prioritized task list see
 - No live execution or automated trading is enabled.
 - Controlled research may continue; production deployment, live trading, and closure of ADR-003
   remain **blocked** until an off-machine backup restore test succeeds.
-- **Operating model (2026-07-23):** Path A Cursor-native research director; **Option 3 hybrid
-  tokens** (Cursor subscription primary; OpenRouter only when deliberately needed for catalog /
-  cost); **private GitHub `origin` as the shared handoff bus** between optional Desktop directors
-  (ChatGPT / Claude) and Cursor agents. Prefer a frontier model for director turns and a
-  cost-effective model (e.g. Grok 4.5 Fast) for implementation. Full SOP:
+- **Operating model (ADR-007, 2026-07-23):** Cursor `research-director` for repo governance;
+  **Signum Agent Live external** (`~/signum-ai-strategy/`) for real-time dual-agent work;
+  **private GitHub `origin` as durable handoff bus**; Option 3 hybrid Cursor tokens. SOP:
   [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
-- ChatGPT–Cursor Orchestration Bridge (ADR-006): local loopback prototype exists (Gate 1 done).
-  **External stages (Gates 4–5: Cloudflare / Custom GPT Action) are paused for cost.** Gates 2–3
-  are not active work; do not burn agent/API budget on bridge smoke unless explicitly reopened.
-  The bridge is **not** connected, production, or ChatGPT-operational. Desktop↔Cursor handoff
-  uses **GitHub artifacts**, not the HTTPS bridge.
+- **ADR-006 HTTPS ChatGPT↔Cursor bridge: archived** (superseded by ADR-007). Gate 1 code may
+  remain as historical R&D only — not the ops path.
+- **ASAP critical path:** gold / **QT-R-001** Signum Agent Live pilot (lab agents, **not** live
+  money) — [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md).
 
 ## Current phase
 
@@ -73,11 +70,13 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   2026-07-23** (`A-TK` Tokyo, six baselines, IS/VAL/OOS, cost ladder) —
   [acceptance](research/strategies/20260721-xauusd-global-session-transition-london-breakout/reviews/2026-07-23-experiment-plan-acceptance.md).
   Evidence still `none`; **blocked on EV-001 data**. No strategy ID, Pine, or optimization.
-  **Next:** supply/link XAUUSD 15m UTC data → TEMPORAL → B1–B6.
-- **ChatGPT–Cursor Orchestration Bridge local prototype dormant (ADR-006, Path A):** Gate 1 local
-  implementation exists (CLI-backed, loopback-only). External Custom GPT / Cloudflare work and
-  further verification spend are **paused for cost**. Critical path returns to **QT-R-001 research
-  review**. See [`docs/architecture/ORCHESTRATION_BRIDGE.md`](docs/architecture/ORCHESTRATION_BRIDGE.md).
+  **Signum external Agent Live pilot ready:**
+  [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md).
+  **Next:** start Signum with QT-R-001 kickoff → close EV-001 → TEMPORAL → B1–B6.
+- **ADR-007 accepted:** Signum external Agent Lab; ADR-006 archived; port to `agent-development/`
+  deferred. Inbox:
+  [`research/inbox/2026-07-23-signum-bridge-handover/`](research/inbox/2026-07-23-signum-bridge-handover/).
+- **ADR-006 archived:** HTTPS orchestration not ops; do not spend on Gates 2–5 / Action / tunnel.
 
 ## Known issues
 
@@ -123,49 +122,43 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   version `2026.07.17-3e2a980`; authenticated.
 - Secrets, if any, are expected in a non-committed `.env` and are not present in source.
 
-## Continuity pickup (Path A + Option 3 + GitHub bus)
+## Continuity pickup (ADR-007 Signum external + GitHub bus)
 
 When resuming after a break:
 
 1. Read this file and [`NEXT_ACTIONS.md`](NEXT_ACTIONS.md); follow
    [`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
-2. Check Git shared-bus state: `git status`, branch vs `origin`; remember **uncommitted work is
-   not on GitHub**. Prefer Cursor `research-director` +
-   [`prompts/00-run-full-pipeline.md`](prompts/00-run-full-pipeline.md). Do not reopen ChatGPT
-   Action / Cloudflare / OpenAI API orchestration spend without a separate cost-approved decision.
-3. **Tokens:** Cursor subscription default; OpenRouter only for deliberate catalog/cost routing.
-4. **MCP:** curated Cursor tool MCP (Shape A) after review; Desktop subscription hosts (Shape B)
-   OK for offline direction that lands as GitHub artifacts; unofficial LLM-bridge MCP (Shape C)
-   deferred. Bridge MCP adapter remains disabled.
-5. **Next product work:** QT-R-001 evidence gathering — complete EV-001 (XAUUSD 15m UTC data),
-   then TEMPORAL + six baselines. No Pine / QT-S-###.
+2. Check Git shared-bus state: `git status`, branch vs `origin`; **uncommitted work is not on
+   GitHub**.
+3. **Agent Live:** Signum external — panel `http://127.0.0.1:8788`; gold kickoff in
+   [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md).
+4. **Tokens:** Cursor subscription default for Cursor seats; Signum agents use Signum’s own stack.
+5. **Next product work:** QT-R-001 Agent Live pilot — EV-001 → TEMPORAL → B1–B6. No Pine /
+   QT-S-###. No live money.
 6. **Ops:** ADR-003 backup remains blocked until the external SSD is available.
-7. **Bridge:** treat ADR-006 local code as dormant R&D; Gates 4–5 deferred; do not claim ChatGPT
-   can drive Cursor agents over HTTPS.
+7. **ADR-006:** archived — do not revive HTTPS / Action / tunnel for ops.
 
 ### GitHub shared-bus viability (snapshot)
 
 | Item | Status |
 |---|---|
 | Private `origin` configured and `main` pushed | Ready |
-| Desktop → GitHub write path | Process gap — land specs/decisions as committed artifacts or PR text (not silent sync) |
+| Signum Agent Live (external) | Ops path (ADR-007); port deferred |
+| Desktop / Signum → GitHub write path | Land accepted artifacts; human-approved push |
 | Cursor agents implement from repo | Ready |
 | Agent `git push` | Human-approved only (by design) |
 | Uncommitted local trees | Not on the bus until committed/pushed |
 
 Pickup phrase:
 
-> Continue QuanTrading V2.5. Path A director on Cursor tokens (frontier director, cheap
-> implementers). OpenRouter only when deliberate. Shared handoff = private GitHub. ChatGPT/Claude
-> Desktop may write artifacts into the repo; Cursor implements. ADR-006 HTTPS bridge paused.
-> Next product work is QT-R-001 EV-001 data then TEMPORAL + B1–B6 (evidence only).
+> Continue QuanTrading V2.5. ADR-007: Signum Agent Live external; GitHub handoff; ADR-006
+> archived. Gold pilot QT-R-001 — EV-001 then TEMPORAL + B1–B6. No live money.
 
 ## Last verified
 
 - 2026-07-21 — Ubuntu Operations Agent established and verified (ADR-004). Re-verify on each new
   session using [`docs/onboarding/FIRST_SESSION_CHECKLIST.md`](docs/onboarding/FIRST_SESSION_CHECKLIST.md).
-- 2026-07-23 — Path A + Option 3 hybrid tokens + GitHub shared-handoff bus documented; ADR-006
-  external stages paused for cost. Bridge Gates 2–5 not evidenced as complete; ChatGPT↔Cursor
-  HTTPS is not operational.
 - 2026-07-23 — QT-R-001 experiment plan **accepted**; status `EVIDENCE-GATHERING`; EV-001 data
   gate open (blocking).
+- 2026-07-23 — **ADR-007 accepted:** Signum external Agent Live; ADR-006 archived; gold pilot
+  packet ready.

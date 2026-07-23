@@ -72,9 +72,10 @@ Full detail: [`SPECIFICATION.md`](SPECIFICATION.md) §C · [`EXPERIMENT_PLAN.md`
 6. Review: [`reviews/2026-07-23-research-review.md`](reviews/2026-07-23-research-review.md)
 7. Acceptance: [`reviews/2026-07-23-experiment-plan-acceptance.md`](reviews/2026-07-23-experiment-plan-acceptance.md)
 8. Evidence: [`evidence/`](evidence/)
+9. Signum Agent Live pilot: [`PILOT_SIGNUM_EXTERNAL.md`](PILOT_SIGNUM_EXTERNAL.md)
 
 ## Governance gate
 
-Experiment plan **accepted**. Evidence gathering only — blocked on
-[`evidence/EV-001-data-acquisition.md`](evidence/EV-001-data-acquisition.md).
-No Pine, optimization, or `QT-S-###` until a separate implementation approval.
+Experiment plan **accepted**. Evidence gathering via **Signum external Agent Live** (ADR-007) +
+Cursor continuity. Blocked on [`evidence/EV-001-data-acquisition.md`](evidence/EV-001-data-acquisition.md).
+No Pine, optimization, `QT-S-###`, or live money until separate approval.

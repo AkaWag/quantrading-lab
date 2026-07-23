@@ -27,7 +27,7 @@ and [`../../docs/research/RESEARCH_STREAMS.md`](../../docs/research/RESEARCH_STR
 
 | Research ID | Stream | Title | Owner | Status | Category | Market | Timeframe | Hypothesis link | Evidence stage | Last review | Next decision |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| QT-R-001 | NEW_STRATEGY | XAUUSD Global Session Transition and London Breakout Research | Aka Wag | EVIDENCE-GATHERING | BREAKOUT (SESSION, VOL, MOMENTUM) | XAUUSD | 15m | ../strategies/20260721-xauusd-global-session-transition-london-breakout/HYPOTHESIS.md | none | 2026-07-23 | EV-001: obtain/link XAUUSD 15m UTC data; then TEMPORAL + B1–B6 under accepted EXPERIMENT_PLAN — no Pine / QT-S-### |
+| QT-R-001 | NEW_STRATEGY | XAUUSD Global Session Transition and London Breakout Research | Aka Wag | EVIDENCE-GATHERING | BREAKOUT (SESSION, VOL, MOMENTUM) | XAUUSD | 15m | ../strategies/20260721-xauusd-global-session-transition-london-breakout/HYPOTHESIS.md | none | 2026-07-23 | Signum Agent Live pilot (external): close EV-001 then TEMPORAL + B1–B6 — no Pine / QT-S-### / live money |
 
 <!--
 Row example (do not treat as a real project):
