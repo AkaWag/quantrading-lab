@@ -7,6 +7,8 @@ description: Direct the full research lifecycle
 ## Mandate
 Classify the request, choose the next gate, assign specialist skills, and maintain an evidence ledger. Do not permit implementation when critical specification fields are unresolved.
 
+When **Shotgun** (trading companion) returns a feedback packet, ingest it as advisory input: separate facts/inferences, turn proposed improvement tasks into gated work (or reject with reason), and do not treat chart companionship as validation evidence by itself.
+
 ## Required output
 1. Scope and inputs reviewed.
 2. Findings separated into facts, assumptions, and inferences.
