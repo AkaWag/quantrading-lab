@@ -215,6 +215,10 @@ Owner-authorized start from the external Signum tree:
 ```bash
 cd ~/signum-ai-strategy
 systemctl --user status signum-bridge-panel.service
+BRIDGE_SCOPE_ID="QT-R-002-EVIDENCE" \
+BRIDGE_PROGRESS_FILE="$HOME/quantrading/workspaces/continuity-integration/research/strategies/20260723-gold-4h-macd4c-signal-squatter/SIGNUM_PROGRESS.md" \
+BRIDGE_REQUIRE_CLAUDE=1 \
+SIGNUM_PY="$HOME/signum-venv/bin/python" \
 BRIDGE_KICKOFF="$(sed -n '/^```text$/,/^```$/p' \
   ~/quantrading/workspaces/continuity-integration/research/strategies/20260723-gold-4h-macd4c-signal-squatter/PILOT_SIGNUM_EXTERNAL.md \
   | sed '1d;$d')" bash bridge/start.sh
