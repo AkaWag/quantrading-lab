@@ -15,12 +15,15 @@ A new session should, before broad changes, read:
    plus any matching the files being edited, e.g. Pine rules for `*.pine`).
 4. The current state in [`../../PROJECT_STATUS.md`](../../PROJECT_STATUS.md) and the prioritized
    work in [`../../NEXT_ACTIONS.md`](../../NEXT_ACTIONS.md).
-5. The relevant skill files for the task under [`../../.cursor/skills/`](../../.cursor/skills/).
+5. The director / tokens / GitHub handoff SOP:
+   [`DIRECTOR_OPERATING_MODEL.md`](DIRECTOR_OPERATING_MODEL.md).
+6. The relevant skill files for the task under [`../../.cursor/skills/`](../../.cursor/skills/).
 
 ## Choosing specialist skills
 
 Pick the smallest set of specialist skills that fits the task, for example:
 
+- **Trading companion / charts / Shotgun** → `shotgun` (see [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md)).
 - Framing a market behavior or hypothesis → `market-behavior-researcher`, `hypothesis-designer`.
 - Specifying a strategy → `strategy-architect`, `risk-architect`.
 - Implementing Pine → `pine-v6-engineer` / `pine-v6-developer`.
@@ -29,6 +32,7 @@ Pick the smallest set of specialist skills that fits the task, for example:
   `robustness-analyst`, `walk-forward-analyst`, `monte-carlo-reviewer`.
 - Release decisions → `release-gatekeeper` / `release-reviewer`.
 - Ingesting external material → `update-intake-analyst`.
+- Central orchestration of research tasks → `research-director` (consumes Shotgun feedback packets).
 
 The full list is in [`../../.cursor/skills/`](../../.cursor/skills/); prefer the skill whose
 description matches the current gate in [`../WORKFLOW.md`](../WORKFLOW.md).
@@ -53,6 +57,8 @@ At the end of a work session, provide a handover summary containing:
 
 ## Related documents
 
+- [`DIRECTOR_OPERATING_MODEL.md`](DIRECTOR_OPERATING_MODEL.md) — director, Shotgun, Signum, GitHub bus
+- [`SHOTGUN_AGENT.md`](SHOTGUN_AGENT.md) — Shotgun trading companion
 - [`FIRST_SESSION_CHECKLIST.md`](FIRST_SESSION_CHECKLIST.md)
 - [`../governance/AI_OPERATING_PRINCIPLES.md`](../governance/AI_OPERATING_PRINCIPLES.md)
 - [`../WORKFLOW.md`](../WORKFLOW.md)
