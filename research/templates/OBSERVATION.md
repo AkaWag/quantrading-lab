@@ -1,6 +1,7 @@
 # Observation — <short title>
 
 - Research ID: <QT-R-###>
+- Stream: <NEW_STRATEGY | EXISTING_STRATEGY | BLACK_BOX_STRATEGY | VALIDATION>
 - Owner: <human name>
 - Date: YYYY-MM-DD
 - Related market / symbol / timeframe: <...>
@@ -8,6 +9,8 @@
 Records a raw observation. This is a **Level-1 draft note**
 ([`../../docs/research/KNOWLEDGE_MANAGEMENT.md`](../../docs/research/KNOWLEDGE_MANAGEMENT.md)):
 it is not a claim of validity. Complete every section; prefer "unknown" over a guess.
+Declare **Stream** per [`../../docs/research/RESEARCH_STREAMS.md`](../../docs/research/RESEARCH_STREAMS.md).
+`NEW_STRATEGY` and `EXISTING_STRATEGY` are **not** the same process.
 
 ## What was observed
 

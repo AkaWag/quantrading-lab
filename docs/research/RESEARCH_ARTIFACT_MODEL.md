@@ -2,7 +2,14 @@
 
 This governing standard defines the artifacts a research project produces, their order, and how
 they map to the existing gated workflow and templates. It supports
-[`RESEARCH_DEPARTMENT.md`](RESEARCH_DEPARTMENT.md).
+[`RESEARCH_DEPARTMENT.md`](RESEARCH_DEPARTMENT.md) and
+[`RESEARCH_STREAMS.md`](RESEARCH_STREAMS.md).
+
+**Stream matters for artifacts:** `NEW_STRATEGY` follows the chain below from observation.
+`EXISTING_STRATEGY` must additionally preserve a frozen baseline and original version before
+change artifacts. `BLACK_BOX_STRATEGY` must capture observable inputs/exports and declare
+uncertainty. `VALIDATION` produces review evidence against an existing claim set — it does not
+replace the discovery chain.
 
 ## The chain
 
@@ -70,6 +77,6 @@ permanently. Closeout summarizes both supporting and opposing evidence. Nothing 
 
 ## Related documents
 
-- [`RESEARCH_DEPARTMENT.md`](RESEARCH_DEPARTMENT.md) · [`RESEARCH_REVIEW_PROCESS.md`](RESEARCH_REVIEW_PROCESS.md)
+- [`RESEARCH_DEPARTMENT.md`](RESEARCH_DEPARTMENT.md) · [`RESEARCH_STREAMS.md`](RESEARCH_STREAMS.md) · [`RESEARCH_REVIEW_PROCESS.md`](RESEARCH_REVIEW_PROCESS.md)
 - [`../WORKFLOW.md`](../WORKFLOW.md) · [`../governance/RESEARCH_GOVERNANCE.md`](../governance/RESEARCH_GOVERNANCE.md)
 - [`../../research/templates/`](../../research/templates/)
