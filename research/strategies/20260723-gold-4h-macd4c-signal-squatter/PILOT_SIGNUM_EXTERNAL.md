@@ -26,6 +26,30 @@
 
 Signum must preserve this verdict. Compute capacity does not create independent observations.
 
+## Performance objective after the evidence gate
+
+M1–M3 are evidence work, not a performance tournament. If the Director later authorizes the
+locked one-parameter study, Signum's objective is:
+
+> Improve mandatory short participation without changing profitable long logic, while producing
+> positive stressed OOS short expectancy and improving combined risk-adjusted performance.
+
+Promotion scorecard:
+
+- minimum 10 independent OOS shorts; preferred 20+ across valid folds;
+- short-only stressed PF >1.0; target >=1.20;
+- short-only MaxDD target <=10%; hard ceiling <13.95%;
+- combined full-window net >78.74%; floor 90%; target 101.31%;
+- combined PF >2.092; target >=2.50;
+- combined MaxDD target <=12%; hard ceiling <15.29%;
+- win rate target >=40%, or ~35% only with average win >=2.25x average loss;
+- marked-to-market OOS Sharpe positive, target >=0.75, stretch >=1.0; Sortino target >=1.0;
+- no single trade or year contributes >50% of candidate profit;
+- at least two neighboring slope values pass the same gates.
+
+The performance scorecard is dormant until the evidence gate passes. `NO CANDIDATE` remains an
+acceptable and preferred result over an overfit selection.
+
 ## Signum role
 
 ### Codex — implementer / evidence engineer

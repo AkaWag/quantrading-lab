@@ -158,12 +158,25 @@ Adjacent symbols/timeframes are transfer checks only and are not pooled into sel
 
 A candidate cannot pass unless all gates hold:
 
-- the locked OOS segment contains at least **10** short trades;
+- the locked OOS segment contains at least **10** short trades; **20+** aggregated independent
+  walk-forward/OOS trades is the preferred evidence target;
 - short-only OOS expectancy is positive after stressed costs;
 - stressed OOS profit factor remains above **1.0**;
+- target short-only stressed OOS profit factor is **1.20 or greater**;
 - combined OOS performance does not rely on one trade or one regime;
-- short-only maximum drawdown is lower than D0-S **13.95%**, and combined drawdown is lower than
-  EV-003 **15.29%**;
+- short-only maximum drawdown target is **10% or lower**, with a hard ceiling below D0-S
+  **13.95%**;
+- combined maximum drawdown target is **12% or lower**, with a hard ceiling below EV-003
+  **15.29%**;
+- combined full-window net profit must exceed EV-003 **78.74%**; the promotion floor is **90%**
+  and the target is the unchanged long-only control **101.31%**;
+- combined profit factor must exceed EV-003 **2.092**, with a target of **2.50 or greater**;
+- win rate is diagnostic, not an isolated gate: target **40% or greater**, or approximately 35%
+  only when average win is at least **2.25 times** average loss;
+- when marked-to-market daily or weekly equity is available, OOS Sharpe must be positive and
+  should reach **0.75 or greater** (stretch **1.0**), with Sortino target **1.0 or greater**;
+  closed-trade Sharpe from a sparse sample is not a promotion gate;
+- no single trade or year contributes more than **50%** of candidate profit;
 - parameter behavior forms a stable region;
 - the candidate improves the short-enabled EV-003 control on a balanced scorecard;
 - no critical temporal, semantic, or execution defect remains.
