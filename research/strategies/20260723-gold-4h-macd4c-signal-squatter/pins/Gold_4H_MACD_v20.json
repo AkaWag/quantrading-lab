@@ -1,0 +1,93 @@
+{
+    "strategy_id": "Gold_4H_MACD_v20",
+    "version": "1.1.0",
+    "created": "2026-05-12",
+    "updated": "2026-05-19",
+    "asset": "Gold",
+    "timeframe": "4H",
+    "exchange": "OANDA",
+    "symbol": "XAUUSD",
+    "strategy_type": "macd_v2.0",
+    "strategy_file": "macd4c_signal_squatter_1_5.py",
+    "signal_function": "macd4c_signal_squatter_v15_signals",
+    "direction": "long_only",
+    "parameters": {
+        "fast_length": 18,
+        "slow_length": 36,
+        "signal_length": 12,
+        "trend_ema_length": 300,
+        "slope_lookback_bars": 3,
+        "atr_pct_max": 2.0
+    },
+    "risk_management": {
+        "qty_type": "percent_of_equity",
+        "qty_value_full_risk": 100,
+        "qty_value_25pct_dd": 100,
+        "qty_value_15pct_dd": 100,
+        "max_drawdown_pct": -7.93,
+        "commission_pct": 0.1
+    },
+    "performance": {
+        "source": "tradingview",
+        "backtest_start": "2013-01-01",
+        "backtest_end": "2026-05-19",
+        "years": 13.4,
+        "net_profit_pct": 98.82,
+        "max_drawdown_pct": -7.93,
+        "profit_factor": 3.376,
+        "win_rate": 46.34,
+        "total_trades": 41,
+        "cagr_pct": 5.27,
+        "composite_score": 35.7,
+        "sharpe_ratio": 0.178,
+        "sortino_ratio": 0.681,
+        "avg_win_loss_ratio": 3.909,
+        "long_trades": 41,
+        "short_trades": 0,
+        "long_win_rate": 46.34,
+        "short_win_rate": 0,
+        "long_pf": 3.376,
+        "short_pf": 0
+    },
+    "performance_python": {
+        "source": "python_engine_v22",
+        "backtest_start": "2023-12-17",
+        "backtest_end": "2026-05-11",
+        "years": 2.4,
+        "net_profit_pct": 65.7,
+        "max_drawdown_pct": -3.8,
+        "profit_factor": 11.293,
+        "win_rate": 61.5,
+        "total_trades": 13,
+        "cagr_pct": 28.9,
+        "composite_score": 194.7
+    },
+    "performance_25pct_dd": {
+        "qty_value": 100,
+        "net_profit_pct": 98.82,
+        "max_drawdown_pct": -7.93,
+        "profit_factor": 3.376,
+        "cagr_pct": 5.27
+    },
+    "performance_15pct_dd": {
+        "qty_value": 100,
+        "net_profit_pct": 98.82,
+        "max_drawdown_pct": -7.93,
+        "profit_factor": 3.376,
+        "cagr_pct": 5.27,
+        "composite_score": 35.7
+    },
+    "grade": "A",
+    "grade_note": "TV reveals 13.4 years history with 41 trades \u00e2\u20ac\u201d far better statistical basis than Python's 2.4yr/13-trade window.",
+    "deployment_notes": "Gold 4H MACD long-only. TV-validated: 5.3% CAGR, PF 3.38, 7.9% max DD over 13.4 years. 41 trades, 46% WR with 3.91x avg win/loss. Minimal DD allows full equity deployment. Python showed inflated PF (11.29) over short 2.4yr window.",
+    "performance_75pct": {
+        "qty_value": 75,
+        "net_profit_pct": 46.9,
+        "max_drawdown_pct": -2.9,
+        "profit_factor": 11.15,
+        "win_rate": 61.5,
+        "total_trades": 13,
+        "cagr_pct": 17.4,
+        "composite_score": 170.0
+    }
+}

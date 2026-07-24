@@ -7,22 +7,35 @@
       "Shell(git log)",
       "Shell(bash scripts/verify.sh)",
       "Shell(bash scripts/doctor.sh)",
+      "Shell(bash scripts/check-continuity.py)",
+      "Shell(python3 scripts/check-continuity.py)",
+      "Shell(bash tools/dizzy/scripts/**)",
+      "Shell(python3 tools/dizzy/scripts/**)",
       "Write(research/**)",
       "Write(experiments/**)",
       "Write(journals/**)",
       "Write(reports/**)",
-      "Write(knowledge/**)"
+      "Write(knowledge/**)",
+      "Write(docs/**)",
+      "Write(tools/dizzy/runtime/**)",
+      "Write(PROJECT_STATUS.md)",
+      "Write(NEXT_ACTIONS.md)"
     ],
     "deny": [
       "Read(.env)",
       "Read(.env.*)",
       "Read(**/*.key)",
       "Read(**/*.pem)",
+      "Read(tools/dizzy/.env)",
+      "Read(tools/dizzy/config/channels.json)",
       "Write(.env)",
       "Write(.env.*)",
+      "Write(tools/dizzy/.env)",
       "Shell(sudo)",
       "Shell(rm -rf)",
-      "Shell(git push)"
+      "Shell(git push)",
+      "Shell(git commit)",
+      "Shell(crontab)"
     ]
   }
 }

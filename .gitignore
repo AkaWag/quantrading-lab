@@ -12,3 +12,15 @@ releases/*.sha256
 *.tmp
 *.log
 .DS_Store
+
+# Dizzy Discord capture — secrets, binaries, quarantine
+tools/dizzy/.env
+tools/dizzy/config/channels.json
+tools/dizzy/vendor/DiscordChatExporter.Cli.linux-x64/
+tools/dizzy/vendor/*.zip
+tools/dizzy/runtime/exports/*
+!tools/dizzy/runtime/exports/.gitkeep
+tools/dizzy/runtime/fixtures/*
+!tools/dizzy/runtime/fixtures/.gitkeep
+tools/dizzy/runtime/state/
+tools/dizzy/runtime/logs/

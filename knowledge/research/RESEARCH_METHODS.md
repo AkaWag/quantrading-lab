@@ -28,7 +28,9 @@ Each step is falsifiable-first: define what would disprove the idea before testi
 
 - **Falsifiable hypothesis** with explicit invalidation criteria.
 - **Market/timeframe assumptions**: symbol, asset class, exchange, timeframe, session, timezone,
-  expected regime.
+  expected regime. Session-aware projects follow the Asia → London → New York architecture in
+  [`GLOBAL_SESSION_ARCHITECTURE.md`](GLOBAL_SESSION_ARCHITECTURE.md) (UTC internal; IANA named
+  zones; sessions not modeled in isolation).
 - **Baseline comparison** ([`BASELINE_COMPARISONS.md`](BASELINE_COMPARISONS.md)).
 - **In-sample / out-of-sample separation** fixed before optimizing.
 - **Sensitivity / robustness** across parameter neighborhoods

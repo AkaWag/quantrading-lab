@@ -1,0 +1,2 @@
+2b770e44a82e0a79917db3adaf9f79557be6be77108d20c0e076f69b0e81b0cc  /home/aka/quantrading/workspaces/continuity-integration/research/strategies/20260723-gold-4h-macd4c-signal-squatter/pins/GOLD_4H_macd4c_signal_squatter_v2_0.pine
+2601dc93259832558b0dc46056b2d51871b12122229075a6a55cfb44507b7cb4  /home/aka/quantrading/workspaces/continuity-integration/research/strategies/20260723-gold-4h-macd4c-signal-squatter/pins/Gold_4H_MACD_v20.json

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "description": "Authorized Discord channel allowlist for Dizzy capture. Copy to channels.json (gitignored) and fill real IDs.",
+  "permissionBasis": "Owner-authorized research capture for QuanTrading Dizzy only.",
+  "channels": [
+    {
+      "channelId": "000000000000000000",
+      "label": "example-trade-ideas",
+      "guildId": "000000000000000000",
+      "guildLabel": "example-guild",
+      "retentionClass": "research-quarantine",
+      "includeThreads": "Active",
+      "media": true,
+      "enabled": false,
+      "notes": "Replace IDs. Keep enabled=false until ADR-009 D2 pilot approval."
+    }
+  ]
+}

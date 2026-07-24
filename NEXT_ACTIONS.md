@@ -6,6 +6,45 @@ state is in [`PROJECT_STATUS.md`](PROJECT_STATUS.md); phases are in
 
 Do **not** begin parameter optimization, production deployment, or live trading yet.
 
+## Continuity (ADR-007 Signum external + GitHub bus — 2026-07-23)
+
+**Immediate product next actions:**
+
+1. **EXISTING gold/TV apparatus (ADR-008):** QT-R-002 **baseline frozen + pins** (2026-07-24) →
+   next **TV reproduce** per
+   [`REPRODUCE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/REPRODUCE.md).
+2. **Shotgun** may companion on QT-R-004 / 3MACD anytime (parked research, ground-zero OK).
+3. **QT-R-001** Signum Agent Live / EV-001 remains parallel NEW_STRATEGY work when scheduled.
+
+Not ADR-006. Not unsupervised live money.
+
+**Operating model:** See
+[`docs/onboarding/DIRECTOR_OPERATING_MODEL.md`](docs/onboarding/DIRECTOR_OPERATING_MODEL.md).
+
+- **Agent Live:** Signum external (`~/signum-ai-strategy/`, panel `:8788`) — ADR-007.
+- **Shotgun:** Cursor trading companion from ground zero — charts, quant+manual craft, feeds
+  director ([`SHOTGUN_AGENT.md`](docs/onboarding/SHOTGUN_AGENT.md)).
+- **Director (repo):** Cursor `research-director`.
+- **Shared handoff bus:** private GitHub `origin` (keep).
+- **ADR-006 HTTPS bridge:** **archived** — do not revive Action/tunnel for ops.
+- **Port Signum into repo:** deferred (future ADR).
+
+Pickup: [`PROJECT_STATUS.md`](PROJECT_STATUS.md) § Continuity pickup.
+
+**Away mode:** [`docs/onboarding/AWAY_MODE.md`](docs/onboarding/AWAY_MODE.md) ·
+status [`reports/away-mode-status.md`](reports/away-mode-status.md).
+
+## Priority 0 — Restore repository continuity (integration awaiting approval)
+
+- [x] Assemble accepted ADR-005–008, QT-R-001, Director, Shotgun, Signum, and gold-intake
+      artifacts on one isolated integration baseline.
+- [x] Preserve source branches and exclude the archived ADR-006 prototype service from the active
+      baseline; record the disposition in
+      [`repository-continuity-restoration-2026-07-24.md`](reports/repository-continuity-restoration-2026-07-24.md).
+- [x] Add required-artifact and internal-link validation through `scripts/check-continuity.py`.
+- [ ] Review verification evidence and integrated diff; explicitly approve or reject a commit.
+- [ ] After commit approval, separately approve or reject merge to `main` and remote push.
+
 ## Priority 1 — Repository health and capability audit (immediate next action)
 
 - [ ] Run [`scripts/verify.sh`](scripts/verify.sh) and [`scripts/doctor.sh`](scripts/doctor.sh);
@@ -55,23 +94,77 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 - Note: re-run the execute-capable test after any `agent update`, since matcher semantics can
       change with the CLI version.
 
-## Priority 3 — Run one controlled research project (recommended next task)
+## Priority 2d — ChatGPT–Cursor Orchestration Bridge (**ARCHIVED — ADR-007**)
 
-- [ ] Register the project in
-      [`research/registry/RESEARCH_REGISTRY.md`](research/registry/RESEARCH_REGISTRY.md) to obtain
-      a research ID (`QT-R-###`).
-- [ ] Exercise observation → research question → hypothesis → specification using the templates in
-      [`research/templates/`](research/templates/), consistent with the artifact model in
-      [`docs/research/RESEARCH_ARTIFACT_MODEL.md`](docs/research/RESEARCH_ARTIFACT_MODEL.md).
-- [ ] Do **not** implement Pine, backtest, or optimize in this project; stop at a falsifiable
-      specification with explicit invalidation criteria.
-- [ ] Record status per
-      [`docs/governance/STRATEGY_LIFECYCLE.md`](docs/governance/STRATEGY_LIFECYCLE.md) and the
-      department lifecycle in
-      [`docs/research/RESEARCH_DEPARTMENT.md`](docs/research/RESEARCH_DEPARTMENT.md).
+- [x] ADR-006 accepted historically; Gate 1 local prototype may exist as R&D only.
+- [x] **2026-07-23 — ADR-007:** ADR-006 **superseded/archived** as ops path. Gates 2–5 **will not
+      be pursued** for day-to-day operations. Do not spend on Action/tunnel/smoke.
+- [x] Replacement ops path: **Signum Agent Live external** + GitHub bus (see Priority 2e / 3).
+- [ ] Do not describe ADR-006 as connected, secure, or ChatGPT-operational.
+
+## Priority 2g — Signum gold/TV → QuanTrading EXISTING streams (ADR-008 — active)
+
+- [x] Accept ADR-008; intake index:
+      [`research/inbox/2026-07-23-signum-gold-tv-intake/`](research/inbox/2026-07-23-signum-gold-tv-intake/README.md).
+- [x] Register QT-R-002 (active), QT-R-003 (parked), QT-R-004 (parked queue).
+- [x] **QT-R-002:** [`BASELINE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/BASELINE.md)
+      freeze + [`pins/`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/pins/) (2026-07-24).
+- [ ] **QT-R-002:** TV reproduce per
+      [`REPRODUCE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/REPRODUCE.md)
+      → `evidence/EV-002-tv-baseline-reproduce.md` (owner / Shotgun — blocked unattended).
+- [ ] Queue QT-R-004 (3MACD) baseline after R-002 or on owner reprioritise; Shotgun companionship allowed now.
+- [ ] Do not assign `QT-S-###` until EXISTING baseline + reproduce gates pass.
+- [ ] Do not treat Signum fleet grades / “production ready” as QuanTrading-verified.
+
+- [x] Create Shotgun skill + mandate:
+      [`.cursor/skills/shotgun/`](.cursor/skills/shotgun/),
+      [`docs/onboarding/SHOTGUN_AGENT.md`](docs/onboarding/SHOTGUN_AGENT.md).
+- [x] Wire into director operating model and Cursor handover (ground zero; not QA-locked).
+- [ ] Owner: open a Cursor chat as **Shotgun** on a chart (any QT-R / draft / live ruleset) and
+      confirm feedback-packet → director flow.
+- [ ] Later iteration: record a directed-TV checklist pass (load strategy, alert, paper trade);
+      deepen webhook/middleman automation under explicit gates.
+- [ ] **Parked (2026-07-24) — Shotgun straighten-out (analyze + update):** Symptoms — Cursor internal
+      browser ≠ user Brave session; private TV layout (e.g. `6x62i3DT`) inaccessible when Cursor
+      browser logged out (“Chart Not Found”). Desired — update Shotgun skill/mandate so chart engage
+      is reliable (session/seat guidance; engage-wait intact). Review prior Shotgun chat / this note;
+      **not** QT-R-001 EV-001 or open PR work.
+
+## Priority 2e — Signum Agent Live external (ADR-007 — active)
+
+- [x] Accept ADR-007; ingest handover:
+      [`research/inbox/2026-07-23-signum-bridge-handover/`](research/inbox/2026-07-23-signum-bridge-handover/).
+- [x] Gold pilot packet + kickoff:
+      [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md)
+      and `~/signum-ai-strategy/docs/QUANTRADING-QT-R-001-PILOT-KICKOFF.md`.
+- [ ] **Owner:** confirm Signum panel LIVE; clear STOP if intentional; start bridge with QT-R-001
+      `BRIDGE_KICKOFF`; test in line with agents.
+- [ ] Port Signum → `agent-development/`: **deferred** (future ADR).
+
+## Priority 3 — Research streams + QT-R-001 gold (**active critical path**)
+
+- [x] Establish research streams (ADR-005):
+      [`docs/research/RESEARCH_STREAMS.md`](docs/research/RESEARCH_STREAMS.md).
+- [x] Establish global session architecture (Asia → London → overlap → NY → next Asia):
+      [`knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md`](knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md).
+- [x] Register/revise `QT-R-001` — stream `NEW_STRATEGY`, status `EVIDENCE-GATHERING`.
+- [x] Research review + experiment plan accepted (2026-07-23).
+- [x] Signum external pilot positioned (ADR-007).
+- [ ] **Next — Agent Live on gold:** run Signum kickoff → close EV-001 → TEMPORAL → B1–B6.
+- [ ] Do **not** implement Pine / assign `QT-S-###` / optimize / live-trade without separate approval.
+- [ ] Do **not** claim QT-R-001 session relationships are empirically validated.
 
 ## Not yet
 
+- [x] **Dizzy skill + toolchain (ADR-009 mailbox pilot):**
+      [`.cursor/skills/dizzy/`](.cursor/skills/dizzy/),
+      [`DIZZY_AGENT.md`](docs/onboarding/DIZZY_AGENT.md),
+      [`tools/dizzy/`](tools/dizzy/README.md). Wired into director / intake analyst / handover.
+- [ ] Owner: open a Cursor chat as **Dizzy** and confirm export → triage → inbox → director packet.
+- [ ] Owner: optional Shotgun transcription of
+      [`research/inbox/2026-07-24-dizzy-trader-j-endweek-ideas/`](research/inbox/2026-07-24-dizzy-trader-j-endweek-ideas/).
+- [ ] Do not install DiscordDataMirror until a separate ADR accepts continuous archival.
+- [ ] No auto alerts / Pine / live execution from Dizzy.
 - [ ] Do not begin optimization.
 - [ ] Do not deploy to production or enable live/automated trading.
 - [ ] Do not create `/srv/quantrading`, service accounts, or V3 services (roadmap Phases 3+).

@@ -57,6 +57,8 @@ should start with the onboarding docs and read the charter before broad changes.
 - [Cursor handover](docs/onboarding/CURSOR_HANDOVER.md) and
   [First-session checklist](docs/onboarding/FIRST_SESSION_CHECKLIST.md).
 - [Project status](PROJECT_STATUS.md) and [Next actions](NEXT_ACTIONS.md).
+- [Dizzy owner setup](tools/dizzy/OWNER_SETUP.md) — Discord bot/channel checklist (proposed;
+  ADR-009; no token in Git).
 
 **Governance**
 

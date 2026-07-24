@@ -1,0 +1,213 @@
+// This Pine Script(TM) strategy is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// MACD 4C Signal Squatter v2.0 — Gold 4H
+// Params: F18/S36/Sig12, EMA(300), slope_lb=3, min_slope=0.03%, TP=off, SL=off
+// Grade C: PF 11.29, 13 trades, +66% net, -3.8% DD (2.4 years)
+
+//@version=6
+strategy("MACD 4C Signal Squatter v2.0 [Gold 4H]",
+     overlay              = true,
+     initial_capital      = 1000,
+     default_qty_type     = strategy.percent_of_equity,
+     default_qty_value    = 100,
+     commission_value     = 0.1,
+     commission_type      = strategy.commission.percent,
+     slippage             = 0,
+     margin_long          = 0,
+     margin_short         = 0,
+     pyramiding           = 1,
+     calc_on_every_tick   = false,
+     calc_on_order_fills  = false,
+     use_bar_magnifier    = false,
+     fill_orders_on_standard_ohlc = true)
+
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — Date Range
+// ════════════════════════════════════════════════════════════════════════════════
+i_startDate = input.time(timestamp("2018-01-01 00:00 +0000"), "Start Date",
+     tooltip = "Strategy start date. Trades only fire on or after this date. Set to match your data availability — Gold 1H data typically starts 2018+.")
+i_endDate   = input.time(timestamp("2069-12-31 23:59 +0000"), "End Date",
+     tooltip = "Strategy end date. Trades only fire on or before this date. Set far future for live trading.")
+
+timeCondition = time >= i_startDate and time <= i_endDate
+
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — MACD Parameters
+// ════════════════════════════════════════════════════════════════════════════════
+string GRP_MACD = "MACD Settings"
+
+i_fastLen  = input.int(18, "Fast EMA Length", minval=2, group=GRP_MACD,
+     tooltip = "Fast EMA period for MACD line. Default 24 optimized for Gold 1H. v1.5 original was 12.")
+i_slowLen  = input.int(36, "Slow EMA Length", minval=2, group=GRP_MACD,
+     tooltip = "Slow EMA period for MACD line. Default 36 optimized for Gold 1H. v1.5 original was 18.")
+i_sigLen   = input.int(12, "Signal Length", minval=1, group=GRP_MACD,
+     tooltip = "Signal line smoothing period (SMA of MACD). Default 12 for Gold 1H. v1.5 original was 7.")
+i_oscType  = input.string("EMA", "Oscillator MA Type", options=["EMA", "SMA"], group=GRP_MACD,
+     tooltip = "Moving average type for MACD fast/slow lines. EMA is standard.")
+i_sigType  = input.string("SMA", "Signal MA Type", options=["EMA", "SMA"], group=GRP_MACD,
+     tooltip = "Moving average type for the signal line. SMA is standard for TradingView MACD.")
+
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — Trend Filter
+// ════════════════════════════════════════════════════════════════════════════════
+string GRP_TREND = "Trend Filter"
+
+i_useTrendFilter = input.bool(true, "Use Trend Filter", group=GRP_TREND,
+     tooltip = "Require price above/below trend EMA for entry. Disabling removes the slope requirement too.")
+i_trendLen       = input.int(300, "Trend EMA Length", minval=10, group=GRP_TREND,
+     tooltip = "Trend EMA period. Default 150 for Gold 1H. EMA100 too noisy, EMA200 too slow for slope requirement.")
+i_slopeLookback  = input.int(3, "Slope Lookback Bars", minval=1, group=GRP_TREND,
+     tooltip = "Number of bars to measure trend EMA slope over. Slope = (EMA now / EMA N bars ago - 1) * 100.")
+i_minSlope       = input.float(0.03, "Min Trend Slope %", minval=0.0, step=0.01, group=GRP_TREND,
+     tooltip = "Minimum absolute slope of trend EMA required for entry. KEY PARAMETER: 0.10% filters out choppy markets. v1.5 original was 0.03%. Proven non-viable below 0.08% or above 0.15% on Gold 1H.")
+i_useTrendExit   = input.bool(true, "Use Trend Exit", group=GRP_TREND,
+     tooltip = "Exit long when price closes below trend EMA (and vice versa for shorts). Recommended ON — catches trend reversals.")
+
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — Signal Qualifiers
+// ════════════════════════════════════════════════════════════════════════════════
+string GRP_SIG = "Signal Qualifiers"
+
+i_reqRisingLong  = input.bool(true, "Require MACD Rising (Long)", group=GRP_SIG,
+     tooltip = "Long entry requires MACD line rising (current > previous bar). Filters fading momentum entries.")
+i_reqFallingShort = input.bool(true, "Require MACD Falling (Short)", group=GRP_SIG,
+     tooltip = "Short entry requires MACD line falling. Mirror of rising requirement for shorts.")
+
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — Exit Rules
+// ════════════════════════════════════════════════════════════════════════════════
+string GRP_EXIT = "Exit Rules"
+
+i_crossExitAny   = input.bool(false, "Cross Exit Any (Aggressive)", group=GRP_EXIT,
+     tooltip = "Exit on ANY MACD cross (not just cross below/above zero). CATASTROPHIC on Gold 1H — PF 0.62. Keep OFF.")
+i_useZeroExit    = input.bool(false, "Zero Line Exit", group=GRP_EXIT,
+     tooltip = "Exit when MACD crosses zero line. Exits too early on Gold 1H — PF 1.18. Keep OFF.")
+
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — Take Profit / Stop Loss
+// ════════════════════════════════════════════════════════════════════════════════
+string GRP_TPSL = "Take Profit / Stop Loss"
+
+i_useTP   = input.bool(false, "Enable Take Profit", group=GRP_TPSL,
+     tooltip = "Enable percentage-based take profit. TP=7% locks in winners before reversal on Gold 1H.")
+i_tpPct   = input.float(7.0, "Take Profit %", minval=0.1, step=0.5, group=GRP_TPSL,
+     tooltip = "Take profit as % from entry price. 7% is the sweet spot for Gold 1H — captures most of the move before reversal. Tested 5-9%: 6% too tight, 8%+ gives back gains.")
+i_useSL   = input.bool(false, "Enable Stop Loss", group=GRP_TPSL,
+     tooltip = "Enable percentage-based stop loss. DISABLED by default — signal exits handle losses at 3-4% on Gold 1H. Fixed SL cuts recovering winners.")
+i_slPct   = input.float(5.0, "Stop Loss %", minval=0.1, step=0.5, group=GRP_TPSL,
+     tooltip = "Stop loss as % from entry price. Only active when Enable Stop Loss is ON. Tested 1.5-7% with no improvement over signal exits.")
+
+
+// NOTE: ATR percentage filter (atr_pct_max=2.0) is handled by the Python
+// backtest engine, not in Pine. The ATR filter was removed from the Pine
+// script in v1.6 after proving non-viable on Gold 1H. For 4H assets,
+// the Python engine applies it server-side when configured.
+// ════════════════════════════════════════════════════════════════════════════════
+// INPUTS — Direction
+// ════════════════════════════════════════════════════════════════════════════════
+string GRP_DIR = "Direction"
+
+i_enableLong  = input.bool(true, "Enable Long", group=GRP_DIR,
+     tooltip = "Enable long entries. Should always be ON for Gold 1H — longs are the profitable direction.")
+i_enableShort = input.bool(false, "Enable Short", group=GRP_DIR,
+     tooltip = "Enable short entries. DISABLED by default — shorts are structurally non-viable on Gold 1H. PF 0.45-0.48 across all tested parameters. Gold's upward bias defeats MACD bear signals.")
+
+// ════════════════════════════════════════════════════════════════════════════════
+// CALCULATIONS — MACD
+// ════════════════════════════════════════════════════════════════════════════════
+f_ma(src, len, maType) =>
+    maType == "EMA" ? ta.ema(src, len) : ta.sma(src, len)
+
+macdLine   = f_ma(close, i_fastLen, i_oscType) - f_ma(close, i_slowLen, i_oscType)
+signalLine = f_ma(macdLine, i_sigLen, i_sigType)
+hist       = macdLine - signalLine
+
+bullCross = ta.crossover(macdLine, signalLine)
+bearCross = ta.crossunder(macdLine, signalLine)
+macdCrossAboveZero = ta.crossover(macdLine, 0.0)
+macdCrossBelowZero = ta.crossunder(macdLine, 0.0)
+
+// ════════════════════════════════════════════════════════════════════════════════
+// CALCULATIONS — Trend Filter
+// ════════════════════════════════════════════════════════════════════════════════
+trendEma      = ta.ema(close, i_trendLen)
+trendSlopePct = (trendEma / trendEma[i_slopeLookback] - 1.0) * 100.0
+
+// ════════════════════════════════════════════════════════════════════════════════
+// ENTRY / EXIT CONDITIONS
+// ════════════════════════════════════════════════════════════════════════════════
+// Long filter
+longFilter = true
+if i_useTrendFilter
+    longFilter := close > trendEma and trendSlopePct >= i_minSlope
+if i_reqRisingLong
+    longFilter := longFilter and macdLine > macdLine[1]
+
+// Short filter
+shortFilter = true
+if i_useTrendFilter
+    shortFilter := close < trendEma and trendSlopePct <= -i_minSlope
+if i_reqFallingShort
+    shortFilter := shortFilter and macdLine < macdLine[1]
+
+// Entries
+longEntry  = i_enableLong  and bullCross and longFilter  and timeCondition
+shortEntry = i_enableShort and bearCross and shortFilter and timeCondition
+
+// Cross exits
+longCrossExit  = i_crossExitAny ? bearCross : (bearCross and macdLine < 0)
+shortCrossExit = i_crossExitAny ? bullCross : (bullCross and macdLine > 0)
+
+// Trend exits
+longTrendExit  = (i_useTrendFilter and i_useTrendExit) ? close < trendEma : false
+shortTrendExit = (i_useTrendFilter and i_useTrendExit) ? close > trendEma : false
+
+// Zero line exits
+longZeroExit  = i_useZeroExit ? macdCrossBelowZero : false
+shortZeroExit = i_useZeroExit ? macdCrossAboveZero : false
+
+// Combined exits
+longExit  = (longCrossExit  or longTrendExit  or longZeroExit  or shortEntry) and timeCondition
+shortExit = (shortCrossExit or shortTrendExit or shortZeroExit or longEntry)  and timeCondition
+
+// ════════════════════════════════════════════════════════════════════════════════
+// STRATEGY EXECUTION
+// ════════════════════════════════════════════════════════════════════════════════
+if longEntry
+    strategy.entry("Long", strategy.long)
+if longExit
+    strategy.close("Long")
+
+if shortEntry
+    strategy.entry("Short", strategy.short)
+if shortExit
+    strategy.close("Short")
+
+// TP / SL via strategy.exit()
+if i_useTP or i_useSL
+    tpTicks = i_useTP ? close * i_tpPct / 100.0 / syminfo.mintick : na
+    slTicks = i_useSL ? close * i_slPct / 100.0 / syminfo.mintick : na
+    if strategy.position_size > 0
+        strategy.exit("TP/SL Long", "Long",
+             profit = i_useTP ? tpTicks : na,
+             loss   = i_useSL ? slTicks : na)
+    if strategy.position_size < 0
+        strategy.exit("TP/SL Short", "Short",
+             profit = i_useTP ? tpTicks : na,
+             loss   = i_useSL ? slTicks : na)
+
+// ════════════════════════════════════════════════════════════════════════════════
+// PLOTS
+// ════════════════════════════════════════════════════════════════════════════════
+plot(trendEma, "Trend EMA", color=color.new(color.orange, 0), linewidth=2)
+
+// MACD subplot
+// (MACD is typically shown in a separate pane — add indicator overlay manually in TV if desired)
+
+// Entry/exit markers
+plotshape(longEntry,  "Long Entry",  shape.triangleup,   location.belowbar, color.new(color.green, 0), size=size.small)
+plotshape(shortEntry, "Short Entry", shape.triangledown,  location.abovebar, color.new(color.red, 0),   size=size.small)
+
+// Background color for trend direction
+bgcolor(i_useTrendFilter and trendSlopePct >= i_minSlope ? color.new(color.green, 93) :
+        i_useTrendFilter and trendSlopePct <= -i_minSlope ? color.new(color.red, 93) :
+        color.new(color.gray, 97))
