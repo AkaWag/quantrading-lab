@@ -106,6 +106,11 @@ Pickup: [`PROJECT_STATUS.md`](PROJECT_STATUS.md) § Continuity pickup.
       confirm feedback-packet → director flow.
 - [ ] Later iteration: record a directed-TV checklist pass (load strategy, alert, paper trade);
       deepen webhook/middleman automation under explicit gates.
+- [ ] **Parked (2026-07-24) — Shotgun straighten-out (analyze + update):** Symptoms — Cursor internal
+      browser ≠ user Brave session; private TV layout (e.g. `6x62i3DT`) inaccessible when Cursor
+      browser logged out (“Chart Not Found”). Desired — update Shotgun skill/mandate so chart engage
+      is reliable (session/seat guidance; engage-wait intact). Review prior Shotgun chat / this note;
+      **not** QT-R-001 EV-001 or open PR work.
 
 ## Priority 2e — Signum Agent Live external (ADR-007 — active)
 

@@ -105,6 +105,9 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   governance-focused).
 - The orchestration bridge has project-local service code and dependencies, but no tunnel, Custom
   GPT Action, enabled MCP connection, production service, or external end-to-end evidence.
+- **Shotgun chart engage (2026-07-24, parked):** Cursor browser session isolation from user Brave;
+  private TradingView layouts fail in Cursor when logged out — analyze and update Shotgun mandate
+  when back online (see [`NEXT_ACTIONS.md`](NEXT_ACTIONS.md) § Priority 2g).
 
 ## Risks
 
