@@ -19,9 +19,10 @@ where facts cannot be confirmed. For the prioritized task list see
   Shotgun: [`docs/onboarding/SHOTGUN_AGENT.md`](docs/onboarding/SHOTGUN_AGENT.md).
 - **ADR-006 HTTPS ChatGPT↔Cursor bridge: archived** (superseded by ADR-007). Gate 1 code may
   remain as historical R&D only — not the ops path.
-- **ASAP critical path:** gold / **QT-R-001** Signum Agent Live pilot (lab agents, **not** live
+- **Parallel product paths:** QT-R-002 short recovery is locked at `INSUFFICIENT_EVIDENCE`;
+  active NEW_STRATEGY path = **QT-R-001** Signum Agent Live pilot (lab agents, **not** live
   money) — [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/PILOT_SIGNUM_EXTERNAL.md).
-  Shotgun available in parallel for chart companionship from ground zero.
+  Shotgun remains available in parallel for chart companionship from ground zero.
 
 ## Current phase
 
@@ -81,7 +82,12 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   Purpose: structured baseline → reproduce → improve under QuanTrading — not orphan Signum-only
   optimisation.
 - **QT-R-002** (active EXISTING): Gold 4H MACD 4C Squatter — **baseline frozen + pins**
-  (2026-07-24); next TV reproduce / EV-002. No optimisation until reproduce evidence.
+  (2026-07-24); **EV-002 PASS** correct-window TV Overview and Properties captured
+  for **2018-01-01 → 2026-05-19** (39 trades / WR 46.15% / MaxDD 7.98% / Net 101.31% /
+  PF 3.532). D0-S produced 17 trades, −10.63%, 13.95% MaxDD, and PF 0.529. The first
+  short-regime family is pre-registered, but its locked OOS has only two trades; EV-007 returns
+  `INSUFFICIENT_EVIDENCE` and blocks parameter selection. The scoped Signum evidence-expansion
+  handover is delivered; owner-authorized Agent Live startup remains the next operational gate.
 - **QT-R-001** remains parallel `NEW_STRATEGY` (session research), not a substitute for gold/TV intake.
 - **Repository continuity restoration (2026-07-24):** accepted ADR-005–008, QT-R-001,
   Director, Shotgun, and Signum artifacts were assembled from their preserved feature branches
@@ -93,8 +99,11 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
   [`.cursor/skills/dizzy/`](.cursor/skills/dizzy/); mandate
   [`docs/onboarding/DIZZY_AGENT.md`](docs/onboarding/DIZZY_AGENT.md); toolchain
   [`tools/dizzy/`](tools/dizzy/README.md) (DiscordChatExporter.Cli `2.47.3`). Pilot channel
-  `#trader-j` on owner mailbox server; export → inbox demonstrated. No auto alerts, Pine, or live
-  execution. DiscordDataMirror contemplated, not installed.
+  `#trader-j` on owner mailbox server; export → inbox demonstrated. Cron autopickup every 15m.
+  **Director routed (2026-07-24):** end-of-week multi-market inbox **DEFERRED**; DJ30 3m bounce
+  **ATTACHED** to that DJ30 thread + **DEFERRED** Shotgun verify — no new `QT-R-###`, does not
+  preempt QT-R-002. No auto alerts, Pine, or live execution. DiscordDataMirror contemplated,
+  not installed.
 
 ## Known issues
 

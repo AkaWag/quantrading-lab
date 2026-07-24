@@ -2,7 +2,8 @@
 
 - Research ID: QT-R-002
 - Stream: EXISTING_STRATEGY
-- Status: **frozen for reproduce** (2026-07-24) — no optimisation until EV reproduce lands
+- Status: **frozen** (2026-07-24); EV-002 **PASS** — short experiment remains blocked by
+  `INSUFFICIENT_EVIDENCE`
 - Owner: Aka Wag
 - Freeze date: 2026-07-24
 
@@ -39,34 +40,36 @@ TradingView defaults; differences must be recorded in the evidence record.
 
 | Field | QT baseline declaration |
 |---|---|
-| Initial capital | 100_000 (account currency USD unless TV chart says otherwise) |
-| Commission | **0.1%** per side (from Signum JSON `commission_pct`) — verify in TV strategy properties |
-| Slippage | **unknown / declare on reproduce** — record exact TV ticks or % used |
-| Sizing | percent_of_equity; JSON qty_value 100 — treat as full-equity risk claim; confirm TV order size mode |
-| Pyramiding | 0 (assume; confirm in Pine/`strategy()` call on reproduce) |
-| Fill model | TradingView strategy tester fills — record version/settings used |
-| Sample window (TV claim) | 2013-01-01 → 2026-05-19 (~13.4y) |
+| Initial capital | **1,000 USD** (`strategy()` pin and captured Tester capital) |
+| Commission | **0.1%** per side — pin and captured TV Properties |
+| Slippage | **0 ticks** — pin and captured TV Properties |
+| Sizing | `strategy.percent_of_equity`, **100%** — pin and captured TV Properties |
+| Pyramiding | **1** — pin and captured TV Properties |
+| Fill model | On bar close; default four-ticks-per-bar detalization; requested-price limit execution; one-tick order delay |
+| Sample window (Signum/TV JSON claim) | 2013-01-01 → 2026-05-19 (~13.4y) — upstream claim only |
 | Sample window (Python claim) | 2023-12-17 → 2026-05-11 (~2.4y) — **not** the freeze target |
-| Freeze target | **TradingView-source claim window** (longer sample) |
+| QT reproduce window (pin remit) | **2018-01-01 → 2026-05-19** — Pine `Start Date` default; end = claim end |
+| Lab start-date rule | Prefer **1 Jan 2018**; shorten only when data does not reach 2018; record actual |
 
 ## Frozen baseline metrics (claims vs QT reproduce)
 
-| Metric | Signum/TV claim | QT reproduce |
+| Metric | Signum/TV claim (2013 start) | QT reproduce (EV-002 PASS, 2018→2026-05-19) |
 |---|---|---|
-| Net % | 98.82 | _pending_ |
-| Max DD % | −7.93 | _pending_ |
-| PF | 3.376 | _pending_ |
-| Trades | 41 | _pending_ |
-| WR % | 46.34 | _pending_ |
-| CAGR % | 5.27 | _pending_ |
+| Net % | 98.82 | **101.31** |
+| Max DD % | −7.93 | **7.98** |
+| PF | 3.376 | **3.532** |
+| Trades | 41 | **39** |
+| WR % | 46.34 | **46.15** (18/39) |
+| CAGR % | 5.27 | _not shown on Overview bar_ |
+
+Evidence: [`evidence/EV-002-tv-baseline-reproduce.md`](evidence/EV-002-tv-baseline-reproduce.md).
 
 Python-engine inflated window (PF ~11.3 / 13 trades) is **not** accepted as the frozen baseline.
 
 ## Known risks at freeze
 
-- Only 41 trades over ~13y — sample-size / clustering risk
-- External claim until TradingView evidence is pasted into an `EVIDENCE_RECORD`
-- Commission/slippage must be confirmed on the chart used for reproduce
+- Only 39 trades over the QT 2018→2026 window — sample-size / clustering risk
+- EV-002 is **PASS** (correct-window Overview, Properties, and UTC+2 display timezone captured)
 - README previously pointed at `engine_repo/strategies/production/`; freeze uses the located
   `incoming/Backtest_engine_v22.0.0/...` paths and local `pins/`
 
@@ -81,4 +84,6 @@ One change family at a time thereafter, compared to this freeze.
 
 ## Next gate
 
-Follow [`REPRODUCE.md`](REPRODUCE.md).
+EV-002 is **PASS** on the QT remit window **2018-01-01 → 2026-05-19**. Short-side recovery is
+pre-registered but returns `INSUFFICIENT_EVIDENCE` under the locked OOS gate; see
+[`EXPERIMENT_PLAN.md`](EXPERIMENT_PLAN.md).

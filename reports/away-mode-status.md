@@ -1,38 +1,33 @@
-# Away mode status — 2026-07-24
+# Away mode status — 2026-07-24 (updated)
 
-Director left this while owner is away. Unattended work only.
+Director Controllable TV Seat path now encoded. Unattended work only where seat allows.
 
-## Done without you
+## Director solution (foundation evidence)
 
-| Item | Result |
+Foundation reproduce (paper or live path — same standard) is **Director-owned**:
+
+1. **Controllable TV Seat** = Cursor `cursor-ide-browser` on tradingview.com (layout *Quantrading Scripts - The Lab*).
+2. Director/Shotgun loads the pin, uses QT remit window **2018-01-01 → 2026-05-19**, and captures Overview + Properties → EV-###. The Signum 2013 start remains an upstream comparison claim.
+3. Owner Brave = companion only. Owner unblock = Cursor TV login/2FA only — **not** click-drive dates.
+4. PARTIAL with wrong end date is **not** PASS.
+
+Encoded in: `research-director` skill, `DIRECTOR_OPERATING_MODEL.md`, `SHOTGUN_AGENT.md`,
+`shotgun/SKILL.md`, `REPRODUCE.md`, `AWAY_MODE.md`, `NEXT_ACTIONS.md`.
+
+## QT-R-002 EV-002
+
+| Item | Status |
 |---|---|
-| QT-R-002 pins | Present under `research/strategies/.../pins/` + SHA256SUMS |
-| BASELINE freeze doc | Frozen for reproduce |
-| REPRODUCE checklist | Added |
-| EV-002 evidence stub | Ready to fill — no invented TV numbers |
-| Improvement options (plan only) | `IMPROVEMENT_OPTIONS.md` — not executable yet |
-| Registry / README / INTAKE / NEXT_ACTIONS | Synced to BASELINE_FROZEN |
-| Away-mode operating doc | `docs/onboarding/AWAY_MODE.md` |
-| `.cursor/cli.json` | Expanded allow for docs/dizzy/verify; deny commit/push/sudo/secrets |
-| Dizzy cron | Active every 15m on `continuity-integration` → `#trader-j` |
-
-## Blocked on you (cannot fake)
-
-1. **H1/H2** — TradingView load pinned Pine → fill EV-002 metrics  
-2. **H3** — After reproduce: pick first improvement family  
-3. **H4** — Approve commit/merge of `continuity/full-repository` when ready  
-4. Cursor UI: enable **Agent auto-run** for this workspace so prompts do not stall
-
-## When you return
-
-1. Open workspace: `/home/aka/quantrading/workspaces/continuity-integration`  
-2. Do EV-002 per `REPRODUCE.md`  
-3. Paste:
-
-```text
-Back from away mode. EV-002 is filled. Continue QT-R-002 from IMPROVEMENT_OPTIONS — one family only.
-```
+| Prior Brave crop PARTIAL | Window ended **2026-07-24** — retained for audit only |
+| Controllable seat | Logged in as `progress245`; XAUUSD 4H OANDA Lab layout open |
+| Correct-window Overview | Captured **2018-01-01 → 2026-05-19**: 39 trades, 46.15% WR, 7.98% MaxDD, PF 3.532 |
+| Current-seat recheck | Direct `cursor-ide-browser` snapshot at 18:16 confirmed header still **Jan 1, 2018 — May 19, 2026 (Deep)** |
+| Properties | Captured: 1,000 USD; 100% equity; pyramiding 1; 0.1% commission; 0 ticks; on-bar-close execution |
+| Chart display timezone | UTC+2 |
+| Verdict | **EV-002 PASS** |
 
 ## Hard stops observed
 
-No commit, push, optimize, live trade, or `.env` read during this away pass.
+No commit, push, optimize, live trade, or `.env` read.
+
+Short recovery is separately recorded as `INSUFFICIENT_EVIDENCE`; no parameter was selected.

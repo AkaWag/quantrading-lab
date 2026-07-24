@@ -8,8 +8,9 @@
 
 ## What exists
 
-Long-only Gold **4H** MACD “4C Signal Squatter” v2.0 in Signum production fleet (Grade A claim).
-Pine + JSON parameter pack; TradingView-oriented.
+Original Signum intake is a long-only Gold **4H** MACD “4C Signal Squatter” v2.0 (Grade A claim).
+Pine + JSON parameter pack; TradingView-oriented. **Owner requirement added 2026-07-24:** the
+target improved strategy must support shorts. Long-only remains the frozen comparison control.
 
 ## Declared parameters (from Signum JSON — verify on freeze)
 
@@ -21,6 +22,9 @@ Pine + JSON parameter pack; TradingView-oriented.
 | atr_pct_max | 2.0 |
 | direction | long_only |
 
+Target requirement: `long_and_short`; this is not retroactively substituted into the frozen
+original.
+
 ## External evidence (links only)
 
 - Production JSON + Pine paths in [`README.md`](README.md)
@@ -28,13 +32,15 @@ Pine + JSON parameter pack; TradingView-oriented.
 
 ## Known limitations (intake)
 
-- Metrics not yet reproduced inside QuanTrading
-- Commission/slippage assumptions must be restated for QT baseline
-- Low trade count (41) — sample-size risk
-- Improvement work must freeze [`BASELINE.md`](BASELINE.md) first
+- EV-002 **PASS** — correct QT window, Properties, and UTC+2 display timezone captured
+- Low baseline trade count (39) and short-only trade count (17) — severe sample-size risk
+- Short-family promotion blocked by a two-trade OOS segment and failed commission stress
 
 ## Next step
 
-**Done:** [`BASELINE.md`](BASELINE.md) freeze + local [`pins/`](pins/).  
-**Now:** run [`REPRODUCE.md`](REPRODUCE.md) on TradingView → `evidence/EV-002-tv-baseline-reproduce.md` →
-then one-family improvement plan (no optimise until reproduce).
+**Done:** [`BASELINE.md`](BASELINE.md) freeze + local [`pins/`](pins/); EV-002 **PASS** for
+**2018-01-01 → 2026-05-19**
+([`evidence/EV-002-tv-baseline-reproduce.md`](evidence/EV-002-tv-baseline-reproduce.md)).
+**Now (Director):** retain the pre-registered short-regime family and the
+`INSUFFICIENT_EVIDENCE` result in [`EXPERIMENT_PLAN.md`](EXPERIMENT_PLAN.md). Do not select a
+slope value until a defensible chronological OOS sample exists.

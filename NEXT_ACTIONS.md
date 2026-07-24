@@ -10,8 +10,10 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 
 **Immediate product next actions:**
 
-1. **EXISTING gold/TV apparatus (ADR-008):** QT-R-002 **baseline frozen + pins** (2026-07-24) →
-   next **TV reproduce** per
+1. **EXISTING gold/TV apparatus (ADR-008):** QT-R-002 **baseline frozen + pins** (2026-07-24);
+   **EV-002 PASS** has the correct QT Overview window **2018-01-01 → 2026-05-19**, Properties,
+   and UTC+2 display timezone. Short recovery returned `INSUFFICIENT_EVIDENCE`: preserve the
+   locked short-regime hypothesis and do not select a slope value from the two-trade OOS sample.
    [`REPRODUCE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/REPRODUCE.md).
 2. **Shotgun** may companion on QT-R-004 / 3MACD anytime (parked research, ground-zero OK).
 3. **QT-R-001** Signum Agent Live / EV-001 remains parallel NEW_STRATEGY work when scheduled.
@@ -47,12 +49,13 @@ status [`reports/away-mode-status.md`](reports/away-mode-status.md).
 
 ## Priority 1 — Repository health and capability audit (immediate next action)
 
-- [ ] Run [`scripts/verify.sh`](scripts/verify.sh) and [`scripts/doctor.sh`](scripts/doctor.sh);
-      record exact output.
+- [x] Run [`scripts/verify.sh`](scripts/verify.sh) and [`scripts/doctor.sh`](scripts/doctor.sh);
+      record exact output (2026-07-24 away-mode: verify **passed**; continuity 23 artifacts /
+      165 Markdown; doctor OK except missing `zip`).
 - [ ] Inventory rules, skills, templates, checklists, prompts, and scripts; confirm each is
       understood and functional.
 - [ ] Confirm the governance docs are internally consistent and correctly cross-linked.
-- [ ] Note gaps or missing tooling (for example the missing `zip`).
+- [ ] Note gaps or missing tooling (for example the missing `zip` — known; not a release blocker).
 
 ## Priority 2 — Establish Git / version-control status (done)
 
@@ -109,9 +112,25 @@ status [`reports/away-mode-status.md`](reports/away-mode-status.md).
 - [x] Register QT-R-002 (active), QT-R-003 (parked), QT-R-004 (parked queue).
 - [x] **QT-R-002:** [`BASELINE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/BASELINE.md)
       freeze + [`pins/`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/pins/) (2026-07-24).
-- [ ] **QT-R-002:** TV reproduce per
-      [`REPRODUCE.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/REPRODUCE.md)
-      → `evidence/EV-002-tv-baseline-reproduce.md` (owner / Shotgun — blocked unattended).
+- [x] **QT-R-002:** correct-window TV reproduce Overview captured (2026-07-24) →
+      [`evidence/EV-002-tv-baseline-reproduce.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/evidence/EV-002-tv-baseline-reproduce.md)
+      — **2018-01-01 → 2026-05-19**, status **PASS**.
+- [x] **QT-R-002:** Strategy Properties and UTC+2 display timezone captured and reconciled.
+- [x] **QT-R-002:** complete pre-optimization semantic/execution review →
+      [`PRE_OPTIMIZATION_AUDIT.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/PRE_OPTIMIZATION_AUDIT.md).
+- [x] **QT-R-002:** isolate and export all 17 short-only trades; classify 11 losses and preserve
+      Overview, raw ledger, classification, Properties, and XLSX workbook as EV-004–006.
+- [ ] **QT-R-002:** optional remaining exports — 39-trade baseline and 56-trade combined ledgers.
+- [x] **QT-R-002 improvement family:** owner selected **short-side design** (shorts required).
+- [x] **QT-R-002:** pre-register one-degree-of-freedom short-regime hypothesis and complete
+      chronological/cost gate. Result: `INSUFFICIENT_EVIDENCE`; grid not searched or selected.
+- [x] **QT-R-002 → Signum:** evidence-expansion handover packet delivered to both workspaces:
+      [`PILOT_SIGNUM_EXTERNAL.md`](research/strategies/20260723-gold-4h-macd4c-signal-squatter/PILOT_SIGNUM_EXTERNAL.md)
+      and `~/signum-ai-strategy/docs/QUANTRADING-QT-R-002-EVIDENCE-HANDOVER.md`.
+- [ ] **Owner-authorized Signum start:** clear deliberate STOP only when ready; run M1 ledger
+      reproduction, M2 data feasibility, and M3 evidence-expansion proposal. Panel is active;
+      current daemon is down with a stale PID, so require clean `bridge/start.sh` and healthy
+      `bridge/status.sh` before accepting output. No Codex-solo mode and no slope-grid search.
 - [ ] Queue QT-R-004 (3MACD) baseline after R-002 or on owner reprioritise; Shotgun companionship allowed now.
 - [ ] Do not assign `QT-S-###` until EXISTING baseline + reproduce gates pass.
 - [ ] Do not treat Signum fleet grades / “production ready” as QuanTrading-verified.
@@ -122,6 +141,8 @@ status [`reports/away-mode-status.md`](reports/away-mode-status.md).
 - [x] Wire into director operating model and Cursor handover (ground zero; not QA-locked).
 - [ ] Owner: open a Cursor chat as **Shotgun** on a chart (any QT-R / draft / live ruleset) and
       confirm feedback-packet → director flow.
+      Optional first briefs when back: QT-R-002 later-OOS evidence, or deferred Dizzy
+      DJ30 / end-of-week charts (see Priority Dizzy routing below).
 - [ ] Later iteration: record a directed-TV checklist pass (load strategy, alert, paper trade);
       deepen webhook/middleman automation under explicit gates.
 - [ ] **Parked (2026-07-24) — Shotgun straighten-out (analyze + update):** Symptoms — Cursor internal
@@ -141,7 +162,7 @@ status [`reports/away-mode-status.md`](reports/away-mode-status.md).
       `BRIDGE_KICKOFF`; test in line with agents.
 - [ ] Port Signum → `agent-development/`: **deferred** (future ADR).
 
-## Priority 3 — Research streams + QT-R-001 gold (**active critical path**)
+## Priority 3 — Research streams + QT-R-001 gold (**parallel NEW_STRATEGY path**)
 
 - [x] Establish research streams (ADR-005):
       [`docs/research/RESEARCH_STREAMS.md`](docs/research/RESEARCH_STREAMS.md).
@@ -160,9 +181,14 @@ status [`reports/away-mode-status.md`](reports/away-mode-status.md).
       [`.cursor/skills/dizzy/`](.cursor/skills/dizzy/),
       [`DIZZY_AGENT.md`](docs/onboarding/DIZZY_AGENT.md),
       [`tools/dizzy/`](tools/dizzy/README.md). Wired into director / intake analyst / handover.
+- [x] **Director routing (2026-07-24 away-mode):** end-of-week multi-market packet **DEFERRED**;
+      DJ30 3m bounce **ATTACHED** to that DJ30 thread + **DEFERRED** Shotgun verify; **no** new
+      `QT-R-###`; must not preempt QT-R-002.
+      [`DIRECTOR_ROUTING.md`](research/inbox/2026-07-24-dizzy-trader-j-endweek-ideas/DIRECTOR_ROUTING.md) ·
+      [`DIRECTOR_ROUTING.md`](research/inbox/2026-07-24-dizzy-dj30-3m-support-bounce/DIRECTOR_ROUTING.md).
 - [ ] Owner: open a Cursor chat as **Dizzy** and confirm export → triage → inbox → director packet.
-- [ ] Owner: optional Shotgun transcription of
-      [`research/inbox/2026-07-24-dizzy-trader-j-endweek-ideas/`](research/inbox/2026-07-24-dizzy-trader-j-endweek-ideas/).
+- [ ] Owner / Shotgun: verify deferred Dizzy charts when back (end-of-week + DJ30 3m); mark
+      EXPIRED if stale; do not open `QT-R-###` without Director gate after verify.
 - [ ] Do not install DiscordDataMirror until a separate ADR accepts continuous archival.
 - [ ] No auto alerts / Pine / live execution from Dizzy.
 - [ ] Do not begin optimization.
