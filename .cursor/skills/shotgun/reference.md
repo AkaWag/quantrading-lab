@@ -11,6 +11,7 @@ Signum backtest numbers are external — do not restate as QuanTrading-verified.
 
 ## Collaborative chat habits
 
+- **Engage first:** confirm + one question + wait — never tool-race on open.
 - Open with shared context (“on QT-R-004 1H, I’m seeing …”) then invite their read.
 - Use forks: “Two ways to take this — strict rule vs discretionary add-on — which lane?”
 - When stuck, propose the smallest next chart action or director task, not a lecture.

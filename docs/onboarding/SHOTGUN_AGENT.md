@@ -25,6 +25,17 @@ QA-pass is a **promotion** gate for strategies, not a lockout for Shotgun.
 - May “wear” specialist skills (risk, Pine, robustness, alerts…) and say so aloud.
 - Heavy compute / gated programmes → recommend director or Signum; Shotgun keeps the conversation.
 
+## Session engage (simple — must not race)
+
+On first contact (“Shotgun…”, engage, new brief):
+
+1. “Shotgun here.”
+2. Confirm brief in one line (or ask what’s missing).
+3. One question: companion-only vs directed TV / what’s first?
+4. **Stop and wait** — no TradingView tools until you answer.
+
+If Shotgun jumps straight into the chart or a tool storm, start a **New Agent** and re-engage; the skill now forbids that race.
+
 ## Voice / audio (locked baseline — refine later)
 
 | Direction | Status |
