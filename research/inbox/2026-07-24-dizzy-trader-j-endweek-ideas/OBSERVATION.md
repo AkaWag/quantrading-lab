@@ -1,7 +1,7 @@
 # Observation — End-of-week BTC / Dow / Nasdaq / Gold zone ideas (relayed)
 
 - Research ID: unassigned (inbox candidate)
-- Stream: unknown — Director to assign
+- Stream: none assigned — Director **DEFERRED** (see [`DIRECTOR_ROUTING.md`](DIRECTOR_ROUTING.md))
 - Owner: Aka Wag
 - Date: 2026-07-24
 - Related markets: BTCUSDT.P, DJ30, NAS100, XAUUSD

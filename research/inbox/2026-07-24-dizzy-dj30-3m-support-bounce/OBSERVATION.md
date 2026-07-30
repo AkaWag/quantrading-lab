@@ -1,10 +1,11 @@
 # Observation — DJ30 3m support bounce (relayed)
 
 - Research ID: unassigned (inbox candidate)
-- Stream: unknown — Director to assign
+- Stream: none assigned — Director **ATTACHED** to end-of-week DJ30 thread + **DEFERRED**
+  (see [`DIRECTOR_ROUTING.md`](DIRECTOR_ROUTING.md))
 - Owner: Aka Wag
 - Date: 2026-07-24
-- Related: may attach to same-day end-of-week DJ30 1h packet
+- Related: [`../2026-07-24-dizzy-trader-j-endweek-ideas/`](../2026-07-24-dizzy-trader-j-endweek-ideas/)
 
 Level-1 note. Not a trade authorization.
 

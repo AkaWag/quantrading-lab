@@ -26,6 +26,11 @@
 | Link to end-of-week DJ30 1h | Candidate **ATTACH** (same symbol, same day) — Director chooses |
 | Auto alerts / live orders / Pine | **Denied** |
 
+## Director decision (2026-07-24)
+
+Confirmed in [`DIRECTOR_ROUTING.md`](DIRECTOR_ROUTING.md): **ATTACH** to end-of-week DJ30 +
+**DEFER** Shotgun verify; **no** new `QT-R-###`; does not preempt QT-R-002.
+
 ## Blockers
 
 - Exact invalidation / target / entry rule not stated

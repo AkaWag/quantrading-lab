@@ -34,6 +34,12 @@
 | Per-market after Shotgun | Director: accept / ATTACH QT-R-### / DEFER / REJECT |
 | Auto alerts / live orders | **Denied** |
 
+## Director decision (2026-07-24)
+
+Confirmed in [`DIRECTOR_ROUTING.md`](DIRECTOR_ROUTING.md): packet **DEFERRED** pending
+human-opened Shotgun; **no** new `QT-R-###`; DJ30 3m follow-up **ATTACHED** to this thread’s
+DJ30 context; XAUUSD must not interrupt QT-R-002 reproduce.
+
 ## Blockers
 
 - Levels not live-verified
