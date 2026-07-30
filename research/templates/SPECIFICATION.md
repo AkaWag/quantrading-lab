@@ -1,7 +1,8 @@
 # Specification — <short title>
 
 - Research ID: <QT-R-###>
-- Strategy ID (if assigned): <QT-S-###>
+- Stream: <NEW_STRATEGY | EXISTING_STRATEGY | BLACK_BOX_STRATEGY | VALIDATION>
+- Strategy ID (if assigned): <QT-S-### or "not assigned">
 - Owner: <human name>
 - Version: <semantic, e.g. 0.1.0>
 - Date: YYYY-MM-DD

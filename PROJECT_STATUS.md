@@ -48,8 +48,19 @@ Phase 1 — Stabilise and validate V2.5 (governance onboarding). See
 ## In progress
 
 - Governance review and adoption by the team/next session.
-- Ready to run the first controlled research project through the new department
-  (observation → research question → hypothesis → specification), no implementation yet.
+- **Research-stream architecture established** (ADR-005): `NEW_STRATEGY`, `EXISTING_STRATEGY`,
+  `BLACK_BOX_STRATEGY`, `VALIDATION` — see
+  [`docs/research/RESEARCH_STREAMS.md`](docs/research/RESEARCH_STREAMS.md). Registry/templates
+  carry a **Stream** field. Strategy IDs remain stable across revisions (semver).
+- **Global session architecture established:** Asia → London → London–NY overlap → New York →
+  next Asia; UTC + IANA (`Europe/London`, `America/New_York`); London not isolated —
+  [`knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md`](knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md).
+- **QT-R-001** — *XAUUSD Global Session Transition and London Breakout Research* — stream
+  `NEW_STRATEGY`, status `HYPOTHESIS`, under
+  [`research/strategies/20260721-xauusd-global-session-transition-london-breakout/`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/README.md).
+  Focus: Asia context → London opportunity → New York response. Observation/Q/H/spec options
+  drafted; **not validated**; evidence stage `none`. No strategy ID, Pine, backtest, or
+  optimization. **Next:** controlled research specification review (not Pine implementation).
 
 ## Known issues
 

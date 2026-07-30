@@ -25,7 +25,7 @@ and [`../docs/research/KNOWLEDGE_MANAGEMENT.md`](../docs/research/KNOWLEDGE_MANA
 |---|---|---|
 | Taxonomy | [`taxonomy/`](taxonomy/) | Controlled vocabularies for behaviors, strategy/indicator families, risk, evidence |
 | Pine knowledge | [`pine/`](pine/) | TradingView/Pine patterns, execution notes, MTF/repainting, failures, performance |
-| Research methods | [`research/`](research/) | Research methods, hypothesis design, baselines, robustness, anti-patterns |
+| Research methods | [`research/`](research/) | Research methods, hypothesis design, baselines, robustness, anti-patterns, [global session architecture](research/GLOBAL_SESSION_ARCHITECTURE.md) |
 | Lessons | [`lessons/`](lessons/) | Promoted lessons learned from closed projects |
 
 ## Knowledge levels and metadata

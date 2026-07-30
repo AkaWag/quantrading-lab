@@ -1,6 +1,7 @@
 # Hypothesis — <short title>
 
 - Research ID: <QT-R-###>
+- Stream: <NEW_STRATEGY | EXISTING_STRATEGY | BLACK_BOX_STRATEGY | VALIDATION>
 - Owner: <human name>
 - Date: YYYY-MM-DD
 - Source question: [RESEARCH_QUESTION](RESEARCH_QUESTION.md)

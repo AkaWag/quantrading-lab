@@ -55,20 +55,21 @@ Do **not** begin parameter optimization, production deployment, or live trading 
 - Note: re-run the execute-capable test after any `agent update`, since matcher semantics can
       change with the CLI version.
 
-## Priority 3 — Run one controlled research project (recommended next task)
+## Priority 3 — Research streams + QT-R-001 (populated; specification review next)
 
-- [ ] Register the project in
-      [`research/registry/RESEARCH_REGISTRY.md`](research/registry/RESEARCH_REGISTRY.md) to obtain
-      a research ID (`QT-R-###`).
-- [ ] Exercise observation → research question → hypothesis → specification using the templates in
-      [`research/templates/`](research/templates/), consistent with the artifact model in
-      [`docs/research/RESEARCH_ARTIFACT_MODEL.md`](docs/research/RESEARCH_ARTIFACT_MODEL.md).
-- [ ] Do **not** implement Pine, backtest, or optimize in this project; stop at a falsifiable
-      specification with explicit invalidation criteria.
-- [ ] Record status per
-      [`docs/governance/STRATEGY_LIFECYCLE.md`](docs/governance/STRATEGY_LIFECYCLE.md) and the
-      department lifecycle in
-      [`docs/research/RESEARCH_DEPARTMENT.md`](docs/research/RESEARCH_DEPARTMENT.md).
+- [x] Establish research streams (ADR-005):
+      [`docs/research/RESEARCH_STREAMS.md`](docs/research/RESEARCH_STREAMS.md).
+- [x] Establish global session architecture (Asia → London → overlap → NY → next Asia):
+      [`knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md`](knowledge/research/GLOBAL_SESSION_ARCHITECTURE.md).
+- [x] Register `QT-R-001` — *XAUUSD Global Session Transition and London Breakout Research* —
+      stream `NEW_STRATEGY`, status `HYPOTHESIS`:
+      [`research/strategies/20260721-xauusd-global-session-transition-london-breakout/`](research/strategies/20260721-xauusd-global-session-transition-london-breakout/README.md).
+- [ ] **Next action — controlled QT-R-001 research specification review:** accept/revise the
+      options draft; choose Asia market anchor and session windows; then pre-register an
+      experiment plan (IS/OOS, costs, all six baselines). Do **not** begin Pine implementation.
+      See [`docs/research/RESEARCH_REVIEW_PROCESS.md`](docs/research/RESEARCH_REVIEW_PROCESS.md).
+- [ ] Do **not** implement Pine, backtest, or optimize; do **not** assign `QT-S-###` yet.
+- [ ] Do **not** claim QT-R-001, session relationships, or the workflow are empirically validated.
 
 ## Not yet
 
